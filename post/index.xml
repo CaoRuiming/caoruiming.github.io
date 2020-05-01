@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Raymond Cao&#39;s Website</title>
+    <link>https://caoruiming.github.io/post/</link>
+      <atom:link href="https://caoruiming.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 12:27:49 -0400</lastBuildDate>
+    <image>
+      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>https://caoruiming.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>How to Set up SSHFS for Mac</title>
+      <link>https://caoruiming.github.io/post/sshfs-guide/</link>
+      <pubDate>Wed, 01 Jan 2020 12:27:49 -0400</pubDate>
+      <guid>https://caoruiming.github.io/post/sshfs-guide/</guid>
+      <description>&lt;p&gt;This is a guide primarily meant to help 
+&lt;a href=&#34;https://cs.brown.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brown University Computer Science&lt;/a&gt; students get started with working remotely on department machines. If you are not part of this audience, the following instructions may still be useful, but be sure to strip out the Brown-specific parts.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install 
+&lt;a href=&#34;https://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Homebrew&lt;/a&gt; (skip if already installed).&lt;/li&gt;
+&lt;li&gt;Install OSXFuse (skip if already installed). Run &lt;code&gt;brew cask install osxfuse&lt;/code&gt; in terminal to install. You may need to restart your computer for the install to take effect since this involves a system extension.&lt;/li&gt;
+&lt;li&gt;Install SSHFS (skip if already installed). Run &lt;code&gt;brew install sshfs&lt;/code&gt; in terminal to install.&lt;/li&gt;
+&lt;li&gt;In your home directory (&lt;code&gt;~&lt;/code&gt;), create a Makefile (make a new text file and name it &lt;code&gt;Makefile&lt;/code&gt;). Contents are detailed at the bottom of this page.
+&lt;ul&gt;
+&lt;li&gt;Make sure you put in your cs username in the file under &lt;code&gt;CS_USERNAME&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LOCAL_DIR&lt;/code&gt; is a file path where you want to mount SSHFS (there should be no existing folder for file under that file path). You probably don’t have to change this.&lt;/li&gt;
+&lt;li&gt;Set &lt;code&gt;CODE_EDITOR&lt;/code&gt; to the editor of your choice:
+&lt;ul&gt;
+&lt;li&gt;put &lt;code&gt;atom&lt;/code&gt; if you want to use Atom&lt;/li&gt;
+&lt;li&gt;put &lt;code&gt;code&lt;/code&gt; if you want to use VSCode (make sure to install &lt;code&gt;code&lt;/code&gt; command to PATH; 
+&lt;a href=&#34;https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here are instructions on how to do this&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;put &lt;code&gt;subl&lt;/code&gt; if you want to use Sublime (if &lt;code&gt;make open-in-editor&lt;/code&gt; doesn’t work for you later on, try looking at 
+&lt;a href=&#34;https://stackoverflow.com/questions/26402472/open-a-folder-in-sublime-text-3-using-command-line#26403208&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In terminal under your home directory, run &lt;code&gt;make key&lt;/code&gt; and input the password to your ssh private key. This way, you won’t have to enter your ssh password every time you ssh.&lt;/li&gt;
+&lt;li&gt;In terminal under your home directory, run &lt;code&gt;make ssh&lt;/code&gt;. Make sure you can log in properly. (You may need to enter you Banner password). Exit ssh by running the command &lt;code&gt;exit&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In terminal under your home directory, run &lt;code&gt;make mount&lt;/code&gt;. This should mount the courses folder from CIT lab machines to the directory specified in the Makefile. If you get security prompts, just allow everything.&lt;/li&gt;
+&lt;li&gt;In terminal under your home directory, run &lt;code&gt;make open-in-editor&lt;/code&gt;. This should open the mounted course folder in the code editor of your choice. (If you have problems with this, try looking at the links in step 4.)&lt;/li&gt;
+&lt;li&gt;Happy coding! Be sure to read the notes below to avoid/fix issues!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To safely unmount/disconnect the sshfs drive, run &lt;code&gt;make unmount&lt;/code&gt; in your home directory in terminal.&lt;/li&gt;
+&lt;li&gt;If you get errors with &lt;code&gt;make mount&lt;/code&gt;, try running &lt;code&gt;make unmount&lt;/code&gt; before running &lt;code&gt;make mount&lt;/code&gt; again.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;You will need to compile, run, and submit your CS work through SSH&lt;/em&gt; (in case you forgot, there a handly &lt;code&gt;make ssh&lt;/code&gt; command in the Makefile!). Some things may work on your local machine, but a lot of stuff won’t.&lt;/li&gt;
+&lt;li&gt;If you don’t want to input the password to you ssh key every time you SSH or mount, running &lt;code&gt;make key&lt;/code&gt; will work; however, you will have to run this every time you restart your Mac (shutting down makes your Mac ‘forget’ the password to your key).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;makefile-contents&#34;&gt;Makefile Contents&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# General Utils
+
+# Dependencies: osxfuse, sshfs
+
+# SSH &amp;amp; SSHFS Options
+LOCAL_DIR = ~/Documents/CSCI # local location where network location will mount
+CS_USERNAME = &amp;lt;insert username here!&amp;gt;
+CODE_EDITOR = code # use code for vscode, atom for atom, subl for sublime
+
+key:
+    ssh-add -K ~/.ssh/id_rsa
+
+open-in-editor: $(LOCAL_DIR)
+    $(CODE_EDITOR) $(LOCAL_DIR)
+
+mount:
+    mkdir -pv $(LOCAL_DIR)
+    sshfs $(CS_USERNAME)@pk-ssh.cs.brown.edu:course $(LOCAL_DIR) -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=CSCI
+
+unmount:
+    umount -f $(LOCAL_DIR)
+    rmdir $(LOCAL_DIR)
+
+ssh: key
+    ssh -AXY $(CS_USERNAME)@pk-ssh.cs.brown.edu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Photo by 
+&lt;a href=&#34;https://unsplash.com/@goran_ivos?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Goran Ivos&lt;/a&gt; on 
+&lt;a href=&#34;https://unsplash.com/s/photos/computer-terminal?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

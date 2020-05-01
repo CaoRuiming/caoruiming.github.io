@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TensorFlow | Raymond Cao&#39;s Website</title>
+    <link>https://caoruiming.github.io/tag/tensorflow/</link>
+      <atom:link href="https://caoruiming.github.io/tag/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    <description>TensorFlow</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Dec 2019 17:36:03 -0400</lastBuildDate>
+    <image>
+      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <title>TensorFlow</title>
+      <link>https://caoruiming.github.io/tag/tensorflow/</link>
+    </image>
+    
+    <item>
+      <title>Detecting Fake News with CNNs &amp; RNNs</title>
+      <link>https://caoruiming.github.io/project/gradient-ascent/</link>
+      <pubDate>Sun, 01 Dec 2019 17:36:03 -0400</pubDate>
+      <guid>https://caoruiming.github.io/project/gradient-ascent/</guid>
+      <description>&lt;p&gt;As the final project of Brown University&amp;rsquo;s 
+&lt;a href=&#34;http://cs.brown.edu/courses/csci1470/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deep Learning&lt;/a&gt; course, I teamed up with 3 classmates to reimplement the models and reproduce the results from the paper 
+&lt;a href=&#34;https://arxiv.org/pdf/1806.11316.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Fake News Identification on Twitter with Hybrid CNN and RNN Models&lt;/em&gt; (2018)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We built three models using 
+&lt;a href=&#34;https://www.tensorflow.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TensorFlow 2&lt;/a&gt; that classified social media posts (in particular, Tweets), on 5 levels of truthfulness (levels defined by the 
+&lt;a href=&#34;https://github.com/thiagorainmaker77/liar_dataset&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Liar Dataset&lt;/a&gt;):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an LSTM RNN&lt;/li&gt;
+&lt;li&gt;an LSTM with dropout regularization&lt;/li&gt;
+&lt;li&gt;an LSTM with a 1D CNN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My role in the project was pair programming with Daniel Kostovetsky to put together the three TensorFlow models. I also added on a live demo component for our project.&lt;/p&gt;
+&lt;p&gt;To see our final report containing our results, you can 
+&lt;a href=&#34;final_report.pdf&#34;&gt;download it here&lt;/a&gt;. Below is an excerpt from our conclusion.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determining the truthfulness of a statement without context is a difficult problem. We were only able to achieve a 25.78% accuracy on our dataset, which may seem low, but is close to the paper’s 27% accuracy. For reference, we attempted to classify training examples by hand and achieved an accuracy that was far less than 25.78%, and in fact, no better than random guessing. Many statements in our dataset, such as “The economy bled $24 billion due to the government shutdown,” are virtually impossible to factually evaluate without an external reference. Others, such as “We have a federal government that thinks they have the authority to regulate our toilet seats,” are subjective, opinionated, or don’t have a well-defined truth value. Some statements did contain certain words that made them identifiable as true, or more frequently, false. For instance, the sentence “In the case of a catastrophic event, the Atlanta-area offices of the Centers for Disease Control and Prevention will self-destruct,” includes the word ‘self-destruct’ that is associated with fictional stories, implying that it is false. Perhaps our model learned to make classifications by looking for such words.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can find the source code of the project at &lt;a href=&#34;https://github.com/CaoRuiming/gradient-ascent-project&#34;&gt;https://github.com/CaoRuiming/gradient-ascent-project&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Photo by 
+&lt;a href=&#34;https://unsplash.com/@mbaumi?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mika Baumeister&lt;/a&gt; on 
+&lt;a href=&#34;https://unsplash.com/s/photos/fake-news?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

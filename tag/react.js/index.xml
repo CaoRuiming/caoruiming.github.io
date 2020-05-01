@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React.js | Raymond Cao&#39;s Website</title>
+    <link>https://caoruiming.github.io/tag/react.js/</link>
+      <atom:link href="https://caoruiming.github.io/tag/react.js/index.xml" rel="self" type="application/rss+xml" />
+    <description>React.js</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 01 May 2018 17:19:22 -0400</lastBuildDate>
+    <image>
+      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <title>React.js</title>
+      <link>https://caoruiming.github.io/tag/react.js/</link>
+    </image>
+    
+    <item>
+      <title>Chinese Translation Application</title>
+      <link>https://caoruiming.github.io/project/biang-biang/</link>
+      <pubDate>Tue, 01 May 2018 17:19:22 -0400</pubDate>
+      <guid>https://caoruiming.github.io/project/biang-biang/</guid>
+      <description>&lt;p&gt;During 
+&lt;a href=&#34;https://2018.hackatbrown.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hack@Brown 2018&lt;/a&gt;, I worked with three other students to design and develop a 
+&lt;a href=&#34;https://reactjs.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React.js&lt;/a&gt; app that took in Chinese text and output the corresponding pinyin (a writing system that denotes the pronunciation of Chinese characters) as well as English translations of user-selected text. The application was built entirely out of open source technologies, works offline, and works across any platform that supports web browsing.&lt;/p&gt;
+&lt;p&gt;The purpose of this project was to assist English-speaking students in learning to read (simplified) Chinese. Every member of our hackathon project group enjoyed reading translated Chinese web novels in our free time, so we decided to build a tool to help us read the &amp;ldquo;raws&amp;rdquo; (i.e. the source material written in the original language).&lt;/p&gt;
+&lt;p&gt;My primary role on the team was the React.js developer, and I lead the technical development of our app.&lt;/p&gt;
+&lt;p&gt;You can view the source code of this project, Biang Biang, at &lt;a href=&#34;https://github.com/CaoRuiming/biangbiang&#34;&gt;https://github.com/CaoRuiming/biangbiang&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

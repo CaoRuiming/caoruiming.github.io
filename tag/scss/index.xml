@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SCSS | Raymond Cao&#39;s Website</title>
+    <link>https://caoruiming.github.io/tag/scss/</link>
+      <atom:link href="https://caoruiming.github.io/tag/scss/index.xml" rel="self" type="application/rss+xml" />
+    <description>SCSS</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2020 12:30:30 -0400</lastBuildDate>
+    <image>
+      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <title>SCSS</title>
+      <link>https://caoruiming.github.io/tag/scss/</link>
+    </image>
+    
+    <item>
+      <title>Brown Political Review Website</title>
+      <link>https://caoruiming.github.io/project/brown-political-review/</link>
+      <pubDate>Fri, 01 May 2020 12:30:30 -0400</pubDate>
+      <guid>https://caoruiming.github.io/project/brown-political-review/</guid>
+      <description>&lt;p&gt;The 
+&lt;a href=&#34;http://brownpoliticalreview.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brown Political Review&lt;/a&gt; (BPR) is a student run publication at Brown University. In the fall of 2018, I was hired by BPR to lead its effort to build a new website to replace its slow, aging one.&lt;/p&gt;
+&lt;p&gt;The original website was an old WordPress site that used an outdated premade theme. Partnering with designers from the Creative Board of BPR, we planned out the look and functionality of the new website from the end of 2018 to the beginning of 2019. I completed the bulk of the website development over the summer of 2019 so that we could have a grand reveal of the new design during the fall 2020 activities fair at Brown University.&lt;/p&gt;
+&lt;p&gt;We built the new website theme from scratch and used the following technologies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://wordpress.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WordPress 5&lt;/a&gt; as the CMS (content management system)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://labs.tonik.pl/theme/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tonik&lt;/a&gt; starter theme as the base of the new theme&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://getbootstrap.com/docs/3.4/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bootstrap 3&lt;/a&gt; and 
+&lt;a href=&#34;https://sass-lang.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SCSS&lt;/a&gt; for styling&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://jquery.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jQuery&lt;/a&gt; for custom menu behavior&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://d3js.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;D3.js&lt;/a&gt; integration to support interactive content on posts&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.advancedcustomfields.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Advanced Custom Fields&lt;/a&gt; for customizing page elements without code changes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also performed content migration and changed 
+&lt;a href=&#34;https://www.digitalocean.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hosting services&lt;/a&gt; as part of this project.&lt;/p&gt;
+&lt;p&gt;You can see the website at &lt;a href=&#34;http://brownpoliticalreview.org/&#34;&gt;http://brownpoliticalreview.org/&lt;/a&gt;. According to page loading benchmarks from 
+&lt;a href=&#34;https://tools.pingdom.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pingdom&lt;/a&gt;, this website loads up to 10 times faster than the one that it replaces.&lt;/p&gt;
+&lt;p&gt;Currently, I continue to lead the development and maintenance of the Brown Political Review&amp;rsquo;s website.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
