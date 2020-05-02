@@ -79,9 +79,6 @@ unmount:
 ssh: key
     ssh -AXY $(CS_USERNAME)@pk-ssh.cs.brown.edu
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Photo by 
-&lt;a href=&#34;https://unsplash.com/@goran_ivos?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Goran Ivos&lt;/a&gt; on 
-&lt;a href=&#34;https://unsplash.com/s/photos/computer-terminal?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

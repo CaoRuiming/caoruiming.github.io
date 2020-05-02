@@ -67,9 +67,6 @@
 &lt;p&gt;Determining the truthfulness of a statement without context is a difficult problem. We were only able to achieve a 25.78% accuracy on our dataset, which may seem low, but is close to the paper’s 27% accuracy. For reference, we attempted to classify training examples by hand and achieved an accuracy that was far less than 25.78%, and in fact, no better than random guessing. Many statements in our dataset, such as “The economy bled $24 billion due to the government shutdown,” are virtually impossible to factually evaluate without an external reference. Others, such as “We have a federal government that thinks they have the authority to regulate our toilet seats,” are subjective, opinionated, or don’t have a well-defined truth value. Some statements did contain certain words that made them identifiable as true, or more frequently, false. For instance, the sentence “In the case of a catastrophic event, the Atlanta-area offices of the Centers for Disease Control and Prevention will self-destruct,” includes the word ‘self-destruct’ that is associated with fictional stories, implying that it is false. Perhaps our model learned to make classifications by looking for such words.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;You can find the source code of the project at &lt;a href=&#34;https://github.com/CaoRuiming/gradient-ascent-project&#34;&gt;https://github.com/CaoRuiming/gradient-ascent-project&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Photo by 
-&lt;a href=&#34;https://unsplash.com/@mbaumi?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mika Baumeister&lt;/a&gt; on 
-&lt;a href=&#34;https://unsplash.com/s/photos/fake-news?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -84,9 +81,6 @@
 &lt;p&gt;My personal role was performing a k-mean analysis on internet access choice in New York to find if the proportions of forms of broadband deployment could reveal the most economical way to build out networks and close the digital divide.&lt;/p&gt;
 &lt;p&gt;Our intermediate and final blog reports on this project can be read at &lt;a href=&#34;https://caoruiming.github.io/data-science-final-project/&#34;&gt;https://caoruiming.github.io/data-science-final-project/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can see the source code of the project at &lt;a href=&#34;https://github.com/CaoRuiming/data-science-final-project&#34;&gt;https://github.com/CaoRuiming/data-science-final-project&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Photo by 
-&lt;a href=&#34;https://unsplash.com/@markusspiske?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markus Spiske&lt;/a&gt; on 
-&lt;a href=&#34;https://unsplash.com/s/photos/broadband?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
