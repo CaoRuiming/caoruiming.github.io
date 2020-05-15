@@ -5,12 +5,20 @@
     <link>https://caoruiming.github.io/project/</link>
       <atom:link href="https://caoruiming.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2020 12:30:30 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 14 May 2020 12:22:39 -0400</lastBuildDate>
     <image>
       <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
       <link>https://caoruiming.github.io/project/</link>
     </image>
+    
+    <item>
+      <title>Analyzing Presidential Farewells with GPT-2</title>
+      <link>https://caoruiming.github.io/project/gpt2-farewell/</link>
+      <pubDate>Thu, 14 May 2020 12:22:39 -0400</pubDate>
+      <guid>https://caoruiming.github.io/project/gpt2-farewell/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Brown Political Review Website</title>
