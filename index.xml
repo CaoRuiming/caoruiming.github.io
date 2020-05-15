@@ -184,6 +184,8 @@
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;GPT-2, as expected, picked up on the major themes of each of the original farewells. It also learned the appropriate vocabularies (relatively speaking) and paragraph breaks. In a way, we can think of GPT-2 as a summarizer of what it sees, though we also must be wary of bias and noise from external sources.&lt;/p&gt;
 &lt;p&gt;Unfortunately, a significant amount of Trump rhetoric contaminates the generated speeches for the newer farewells. I opted to exclude the most extreme cases from this post: for every generated text you see here, there were at least 6 other candidates that I rejected. This bias is likely because of GPT-2&amp;rsquo;s original training dataset (which was scraped from various websites after the 2016 American election) and also due to the similaries in the vocabulary/structure of modern political speeches.&lt;/p&gt;
+&lt;p&gt;You can play around with my code 
+&lt;a href=&#34;https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;bloopers&#34;&gt;Bloopers&lt;/h1&gt;
 &lt;p&gt;Now that you&amp;rsquo;ve read to the end, here are some &amp;hellip; interesting &amp;hellip; GPT-2 passages out of context!&lt;/p&gt;
 &lt;h2 id=&#34;nixon&#34;&gt;Nixon&lt;/h2&gt;
