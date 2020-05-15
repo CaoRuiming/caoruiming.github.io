@@ -17,8 +17,8 @@
       <link>https://caoruiming.github.io/post/gpt2-farewell/</link>
       <pubDate>Thu, 14 May 2020 12:22:39 -0400</pubDate>
       <guid>https://caoruiming.github.io/post/gpt2-farewell/</guid>
-      <description>&lt;p&gt;Hello! This post is a final project write up for the class 
-&lt;a href=&#34;https://bulletin.brown.edu/the-college/concentrations/clas/index.html?find=CLAS%201120U&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The American Presidents and the Western Tradition&lt;/em&gt; (CLAS1120U)&lt;/a&gt; taught at Brown University. I assume no computer science background when I present content on this page.&lt;/p&gt;
+      <description>&lt;p&gt;Hello! This post is a final project write-up for the class 
+&lt;a href=&#34;https://bulletin.brown.edu/the-college/concentrations/clas/index.html?find=CLAS%201120U&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The American Presidents and the Western Tradition&lt;/em&gt; (CLAS1120U)&lt;/a&gt; at Brown University. I assume no computer science background when I present content on this page.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;GPT-2, which stands for Generative Pretrained Transformer 2, is a cutting-edge English language model developed and released by research group 
 &lt;a href=&#34;https://openai.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAI&lt;/a&gt; in 2019. This model generates realistic passages of English text given any arbitrary prompt. In fact, GPT-2&amp;rsquo;s output could be so convincing that the model&amp;rsquo;s creators declined to publish the 
