@@ -21,8 +21,8 @@
 &lt;a href=&#34;https://bulletin.brown.edu/the-college/concentrations/clas/index.html?find=CLAS%201120U&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The American Presidents and the Western Tradition&lt;/em&gt; (CLAS1120U)&lt;/a&gt; taught at Brown University. I assume no computer science background when I present content on this page.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;GPT-2, which stands for Generative Pretrained Transformer 2, is a cutting-edge English language model developed and released by research group 
-&lt;a href=&#34;https://openai.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAI&lt;/a&gt; in 2019. This model generates realistic passages of English text given any arbitrary prompt. In fact, GPT-2&amp;rsquo;s output could be so convincing that the model&amp;rsquo;s creators declined to publish its 
-&lt;a href=&#34;https://github.com/openai/gpt-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;source code&lt;/a&gt; until months after the 
+&lt;a href=&#34;https://openai.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAI&lt;/a&gt; in 2019. This model generates realistic passages of English text given any arbitrary prompt. In fact, GPT-2&amp;rsquo;s output could be so convincing that the model&amp;rsquo;s creators declined to publish the 
+&lt;a href=&#34;https://github.com/openai/gpt-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;actual model&lt;/a&gt; until months after the 
 &lt;a href=&#34;https://openai.com/blog/better-language-models/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;original paper&lt;/a&gt; for fear that it would be used to overwhelm social media with hard-to-filter disinformation and propaganda.&lt;/p&gt;
 &lt;p&gt;Now we can find many fun projects on the internet that use the power of GPT-2:&lt;/p&gt;
 &lt;ul&gt;
@@ -32,7 +32,7 @@
 &lt;a href=&#34;https://aidungeon.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AI Dungeon&lt;/a&gt;: an open-world choose-your-adventure style game that generates a plot on the fly according to typed responses from players&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Of course, there exist less innocent applications of GPT-2, but that&amp;rsquo;s not what I want to look at here.&lt;/p&gt;
-&lt;p&gt;The purpose of this project is to use GPT-2 to analyze the farewell speeches of several U.S. Presidents and find which tones, anecdotes, and syntactic details the model finds significant.&lt;/p&gt;
+&lt;p&gt;The purpose of this project is to use GPT-2 to analyze and generate farewell speeches for several U.S. Presidents and find which tones, anecdotes, and syntactic details the model finds significant.&lt;/p&gt;
 &lt;p&gt;We will use the 
 &lt;a href=&#34;https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/farewell-addresses-washington-1796-jackson-1837&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;farewell addresses&lt;/a&gt; of the following presidents:&lt;/p&gt;
 &lt;ul&gt;
@@ -44,7 +44,7 @@
 &lt;a href=&#34;https://www.presidency.ucsb.edu/documents/farewell-address-the-nation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ronald Reagan&lt;/a&gt; &amp;ndash; 1989&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;how-gpt-2-works&#34;&gt;How GPT-2 Works&lt;/h2&gt;
-&lt;p&gt;GPT-2 is a transformer-based language model. This means that the way it generates each word of its output depends primarily on the presence of each word in the input or prompt. In terms of basic math, you can think of this as each word of the output is determined by a weighted sum of the input words (and we have a way to represent the concept of each word as numbers). This concept is called &lt;em&gt;attention&lt;/em&gt; because each of the words of the output pay attention to each of the words of the input. Transformers are models that almost entirely rely on attention.&lt;/p&gt;
+&lt;p&gt;GPT-2 is a transformer-based language model. This means that the way it generates each word of its output depends primarily on the presence of each word in the input or prompt. In terms of basic math, you can think of this as each word of the output is determined by a weighted sum of the input words (and we have a way to represent the concept of each word as a series of numbers). This concept is called &lt;em&gt;attention&lt;/em&gt; because each of the words of the output pay attention to each of the words of the input. Transformers are models that almost entirely rely on attention.&lt;/p&gt;
 &lt;p&gt;Below is a visualization of attention heads presented in the paper 
 &lt;a href=&#34;https://arxiv.org/pdf/1706.03762.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Attention Is All You Need&lt;/em&gt;&lt;/a&gt;. The opacities of the lines correspond to the amount of &amp;ldquo;attention&amp;rdquo; each attention head has on the other words.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;attention.jpg&#34; alt=&#34;Attention visualized&#34;&gt;&lt;/p&gt;
@@ -56,10 +56,10 @@
 &lt;p&gt;Now, after almost two centuries, the mystery of what sparked this odd phenomenon is finally solved.&lt;/p&gt;
 &lt;p&gt;Dr. Jorge Perez, an evolutionary biologist from the University of La Paz, and several companions, were exploring the Andes Mountains when they found a small valley, with no other animals or humans. Perez noticed that the valley had what appeared to be a natural fountain, surrounded by two peaks of rock and silver snow.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Note that GPT-2 did not confuse pronouns like &amp;lsquo;this&amp;rsquo; and remembers the name name of the scientist across different sentences. Although these details seem trivial to native English speakers, older language models that have used architectures like LSTMs (long short term memory) struggle to maintain a cohesive narrative across multiple sentences. GPT-2&amp;rsquo;s capacity to &amp;ldquo;understand&amp;rdquo; the English language comes from its 1.5 billion trainable parameters and the 
+&lt;p&gt;Note that GPT-2 did not confuse pronouns like &amp;lsquo;this&amp;rsquo; and remembered the name of the scientist across different sentences. Although these details seem trivial to native English speakers, older language models that have used architectures like LSTMs (long short term memory) struggle to maintain a cohesive narrative across multiple sentences. GPT-2&amp;rsquo;s impressive capacity to &amp;ldquo;understand&amp;rdquo; the English language comes from its 1.5 billion trainable parameters and the 
 &lt;a href=&#34;https://openai.com/blog/better-language-models/#fn1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;40GB of website text&lt;/a&gt; that it was trained on.&lt;/p&gt;
 &lt;h2 id=&#34;applying-gpt-2&#34;&gt;Applying GPT-2&lt;/h2&gt;
-&lt;p&gt;GPT-2 generates output one word at a time using the preceding words as input, kind of like how a smartphone&amp;rsquo;s virtual keyboard can suggest the next word you want to type. The model suggests each word using the trained knowledge represented by its 1.5 billion trainable parameters.&lt;/p&gt;
+&lt;p&gt;GPT-2 generates output one word at a time using the preceding words as input, similar to how a smartphone&amp;rsquo;s virtual keyboard can suggest the next word you want to type. The model suggests each output word using the trained knowledge represented by its 1.5 billion trainable parameters.&lt;/p&gt;
 &lt;p&gt;For this project, I can tweak these parameters so they they imitate a specific writing style by training GPT-2 on a text example using the writing style I want it to learn.&lt;/p&gt;
 &lt;p&gt;Here is a general overview of the training process:&lt;/p&gt;
 &lt;ol&gt;
@@ -69,15 +69,15 @@
 &lt;li&gt;Repeat steps 1-3 until we (the humans) decide that GPT-2 has learned enough&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;This process is volatile and stochastic &amp;ndash;  we will not get the same results from every training session. If we&amp;rsquo;re not careful, it&amp;rsquo;s easy for the model to do things we don&amp;rsquo;t want &amp;ndash; like memorizing and outputting the training text word-for-word.&lt;/p&gt;
-&lt;p&gt;Additionally, updating the 1.5 billion parameters of GPT-2 requires a lot computation power and time, so I, unfortunately, can&amp;rsquo;t present a live demo that&amp;rsquo;s easy to use and/or free to operate. If you would like to see the environment that I used anyway, navigate to this 
-&lt;a href=&#34;https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Colaboratory&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Additionally, updating the 1.5 billion parameters of GPT-2 requires a lot computation power and time, so I used a 
+&lt;a href=&#34;https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Colaboratory document&lt;/a&gt; with a GPU (graphics processing unit) to accelerate the training process.&lt;/p&gt;
 &lt;p&gt;For more technical details on how I fine-tuned GPT-2, I recommending reading through Max Woolf&amp;rsquo;s 
 &lt;a href=&#34;https://minimaxir.com/2019/09/howto-gpt2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent guide&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;When doing this project, I trained GPT-2 separately on each presidential farewell for a short amount of time (measured in terms of number of times we perform the process loop above). The idea was for GPT-2 to begin learning parts the writing style without having enough time to memorize the farewells. Thus, whatever these customized GPT-2 models learn is likely to be more characteristic of the training texts, and we can parse through these characteristics in the model outputs.&lt;/p&gt;
+&lt;p&gt;When doing this project, I trained GPT-2 separately on each presidential farewell for a short amount of time (measured in terms of number of times we perform the process loop above). The idea was for GPT-2 to begin learning parts the writing style without having enough time to memorize the farewells. Thus, whatever these customized GPT-2 models learned was likely to be more characteristic of the training texts, and we can parse these learned characteristics through the model outputs.&lt;/p&gt;
 &lt;p&gt;So, without further ado, let&amp;rsquo;s look at some GPT-2 output!&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
-&lt;p&gt;Note that the passages presented here are cherry-picked because performing an accurate statistical analsysis is out of scope for this project, but we can still draw insights from these paragraphs. The themes and structures that make it through to these generated texts are likely the most important components of their repective source speeches.&lt;/p&gt;
-&lt;p&gt;When calling on GPT-2 to generate each of these speeches, I gave them following prompt: &lt;strong&gt;&amp;ldquo;Farewell&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Note that the passages presented here are cherry-picked because performing an accurate statistical analsysis is out of scope for this project, but we can still draw insights from these paragraphs. The themes and structures that make it through to these generated texts are likely the most important components of their respective source speeches.&lt;/p&gt;
+&lt;p&gt;When calling on GPT-2 to generate each of these speeches, I gave them following starting prompt: &lt;strong&gt;&amp;ldquo;Farewell&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;jacksons-farewell-originally-delivered-on-1837&#34;&gt;Jackson&amp;rsquo;s Farewell (originally delivered on 1837)&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Farewell, my friend and fellow-citizens, to the present day, and to the new and improved condition of our country.&lt;/p&gt;
@@ -100,12 +100,12 @@
 &lt;p&gt;These severe measures and the constant encouragement given to them have impressed upon us the deep anxiety and danger which pervaded before the Revolution, and we are come to the hour when the warning cry of the General Government will be overthrown. The corporations will have succeeded in obtaining a share of the currency by taking away from the people a share of the money power, and this evil will now be felt in every part of the country.&lt;/p&gt;
 &lt;p&gt;In the cities especially where the corporations have concentrated their operations, the real evils of the present situation are continually at work. The multitude of idle speculators and property speculators in every quarter of the country are endeavoring to impost upon the public treasury a surplus of money in order to obtain for themselves a share of the money power; and from the number of cities in the several States, with their high taxes and burdens, and the high price of goods, the corporations are prepared to sacrifice a large part of the income of the State into the hands of the rich and powerful, and to collect a surplus for themselves by taxing the people at large. These corporations are engaged in a most article of commerce, and they are prepared to sacrifice a portion of the surplus revenue for their own gain; but we are told that they have no choice but to pay the heavy taxes imposed on them, as their revenue will be wholly used for their own benefit; and the heavy debts they are now in debt will soon become more and more severe. The temptation is too great for vain hope, and the time has come when the people in every quarter of the country shall be permitted to be&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This will become obvious, but the difference in syntax and structure between this and the newer farewells is stark. Jackson has fewer, yet significantly longer and wordier paragraphs. The overall vocabulary used also becomes simpler in the recent speeches.&lt;/p&gt;
+&lt;p&gt;This will become obvious, but the difference in syntax and structure between this generated speech and the newer farewells is stark. Jackson has fewer, yet significantly longer and complex paragraphs. The general vocabulary used also becomes simpler in the recent speeches.&lt;/p&gt;
 &lt;h3 id=&#34;nixons-farewell-originally-delivered-on-1974&#34;&gt;Nixon&amp;rsquo;s Farewell (originally delivered on 1974)&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Farewell, my boys and girls.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Nixon&amp;rsquo;s message that he was proud of the people of his administration really shines through here:&lt;/p&gt;
+&lt;p&gt;Nixon&amp;rsquo;s message that he was proud of the people of his administration shines through here:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I want you to know that, as I said, I am proud of this Cabinet. I am proud of all the members who have served in our Cabinet. I am proud of our sub-Cabinet. I am proud of our White House Staff. We are grateful to all who have supported us or assisted us in our many missions. And most important, we are proud of this House for what it has done for many years: Ordered houses, and all houses, of the United States Congress.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -113,7 +113,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;I was proud of it. I am proud of it for being the largest house in the world, and I am proud of all the members and staffs who have served in our Cabinet.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Repetition of a simple phrase as a rhetorical device; this is more prominent in farewells of the television era:&lt;/p&gt;
+&lt;p&gt;Repetition of a simple phrase as a rhetorical device; this is more prominent in speeches of the television era:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I am proud of our sub-Cabinet. I am proud of our sub-Cabinet. and I am proud of our White House Staff.&lt;/p&gt;
 &lt;p&gt;I am proud of our White House Staff. We are proud of our White House Staff.&lt;/p&gt;
@@ -136,7 +136,7 @@
 &lt;h3 id=&#34;reagans-farewell-originally-delivered-on-1989&#34;&gt;Reagan&amp;rsquo;s Farewell (originally delivered on 1989)&lt;/h3&gt;
 &lt;p&gt;Before we continue here, I will warn you that the more modern farewells may be more obviously affected by the bias within GPT-2&amp;rsquo;s original training dataset. More details are in the 
 &lt;a href=&#34;#conclusion&#34;&gt;conclusion section&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is perhaps indicative of the more informal language used in modern political speeches:&lt;/p&gt;
+&lt;p&gt;Below is perhaps indicative of the more informal language used in modern political speeches:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Farewell, people. You&amp;rsquo;ve been living under a rock.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m leaving with a big smile on my face. And a big kiss on the cheek.&lt;/p&gt;
@@ -171,7 +171,7 @@
 &lt;p&gt;My family and many in the Washington community celebrate the 40th anniversary of the victory over the Soviet Union. I want to take a moment here today to truly take a moment and appreciate the hard work of the people of Afghanistan.&lt;/p&gt;
 &lt;p&gt;It took a miracle to bring about an economic miracle in this nation. But we brought about an economic miracle that brought about hope and prosperity. And hope is again extended to the people of Afghanistan.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Here, I think GPT-2&amp;rsquo;s external bias is prominent, so you can probably skip past this part of the farewell:&lt;/p&gt;
+&lt;p&gt;Here, I think GPT-2&amp;rsquo;s external bias overpowers the text, so you can probably skip past this part of the farewell:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I want to begin this little review with a warning. Some people are very nervous. I&amp;rsquo;ve known people who have been nervous. And yet again, my family and I have been very, very, very, very, nervous.&lt;/p&gt;
 &lt;p&gt;Some people are very nervous. And yet again, my family and I have been very, very, very, very, nervous.&lt;/p&gt;
@@ -183,7 +183,7 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;GPT-2, as expected, picked up on the major themes of each of the original farewells. It also learned the appropriate vocabularies (relatively speaking) and paragraph breaks. In a way, we can think of GPT-2 as a summarizer of what it sees, though we also must be wary of bias and noise from external sources.&lt;/p&gt;
-&lt;p&gt;Unfortunately, a significant amount of Trump rhetoric contaminates the generated speeches for the newer farewells. I opted to exclude the most extreme cases from this post: for every generated text you see here, there at least 6 other candidates that I rejected. This is likely because of GPT-2&amp;rsquo;s original training dataset (which was scraped from various websites after the 2016 election) and due to the similaries in the vocabulary/structure of modern political speeches.&lt;/p&gt;
+&lt;p&gt;Unfortunately, a significant amount of Trump rhetoric contaminates the generated speeches for the newer farewells. I opted to exclude the most extreme cases from this post: for every generated text you see here, there were at least 6 other candidates that I rejected. This bias is likely because of GPT-2&amp;rsquo;s original training dataset (which was scraped from various websites after the 2016 American election) and also due to the similaries in the vocabulary/structure of modern political speeches.&lt;/p&gt;
 &lt;h1 id=&#34;bloopers&#34;&gt;Bloopers&lt;/h1&gt;
 &lt;p&gt;Now that you&amp;rsquo;ve read to the end, here are some &amp;hellip; interesting &amp;hellip; GPT-2 passages out of context!&lt;/p&gt;
 &lt;h2 id=&#34;nixon&#34;&gt;Nixon&lt;/h2&gt;
