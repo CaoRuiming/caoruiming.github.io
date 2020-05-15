@@ -77,6 +77,11 @@
 &lt;p&gt;So, without further ado, let&amp;rsquo;s look at some GPT-2 output!&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
 &lt;p&gt;Note that the passages presented here are cherry-picked because performing an accurate statistical analsysis is out of scope for this project, but we can still draw insights from these paragraphs. The themes and structures that make it through to these generated texts are likely the most important components of their respective source speeches.&lt;/p&gt;
+&lt;p&gt;None of these generated farewells would pass as human-written. This is expected because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The additional training data that I gave GPT-2 data is tiny &amp;ndash; I would need several books worth of training material to realize the full power of the model&lt;/li&gt;
+&lt;li&gt;GPT-2 has several differently-sized variants &amp;ndash; I chose to use the smallest, least powerful version (124M) for performance reasons (the larger ones would have taken hours to fine-tune)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;When calling on GPT-2 to generate each of these speeches, I gave them following starting prompt: &lt;strong&gt;&amp;ldquo;Farewell&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;jacksons-farewell-originally-delivered-on-1837&#34;&gt;Jackson&amp;rsquo;s Farewell (originally delivered on 1837)&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -164,7 +169,7 @@
 &lt;p&gt;The family has been trying all summer to get an explanation from the driver of the car. But on the morning of my visit, he summoned the national guard and told them to get out of the way immediately. The guard was right there, and he and the driver seemed to know it.&lt;/p&gt;
 &lt;p&gt;A few days later, the family got a call that another car was blocking traffic on I-95. The driver of the Russian car was hit in the back and was taken to a local hospital. Our thoughts are with the family at this difficult time.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;GPT-2 remembers the Reagan&amp;rsquo;s proud references to America&amp;rsquo;s political and diplomatic victories over the Soviet Union (including Soviet withdrawal from Afghanistan):&lt;/p&gt;
+&lt;p&gt;GPT-2 remembers Reagan&amp;rsquo;s proud references to America&amp;rsquo;s political and diplomatic victories over the Soviet Union (including Soviet withdrawal from Afghanistan):&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I want to return to Washington this week and begin the difficult process of determined and thorough review of our action in Afghanistan. The review will continue through to Christmas. But first, I want to wish my family and the Washington community a happy 2012.&lt;/p&gt;
 &lt;p&gt;A Message From the President:&lt;/p&gt;
