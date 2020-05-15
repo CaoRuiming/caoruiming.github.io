@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://caoruiming.github.io/post/</loc>
+    <lastmod>2020-05-14T12:22:39-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://caoruiming.github.io/post/gpt2-farewell/</loc>
+    <lastmod>2020-05-14T12:22:39-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://caoruiming.github.io/project/brown-political-review/</loc>
     <lastmod>2020-05-01T12:30:30-04:00</lastmod>
   </url>
@@ -34,11 +44,6 @@
   
   <url>
     <loc>https://caoruiming.github.io/post/sshfs-guide/</loc>
-    <lastmod>2020-01-01T12:27:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://caoruiming.github.io/post/</loc>
     <lastmod>2020-01-01T12:27:49-04:00</lastmod>
   </url>
   
