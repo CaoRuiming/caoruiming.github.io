@@ -18,7 +18,7 @@
       <pubDate>Fri, 01 May 2020 12:30:30 -0400</pubDate>
       <guid>https://caoruiming.github.io/project/brown-political-review/</guid>
       <description>&lt;p&gt;The 
-&lt;a href=&#34;http://brownpoliticalreview.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brown Political Review&lt;/a&gt; (BPR) is a student run publication at Brown University. In the fall of 2018, I was hired by BPR to lead its effort to build a new website to replace its slow, aging one.&lt;/p&gt;
+&lt;a href=&#34;https://brownpoliticalreview.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brown Political Review&lt;/a&gt; (BPR) is a student run publication at Brown University. In the fall of 2018, I was hired by BPR to lead its effort to build a new website to replace its slow, aging one.&lt;/p&gt;
 &lt;p&gt;The original website was an old WordPress site that used an outdated premade theme. Partnering with designers from the Creative Board of BPR, we planned out the look and functionality of the new website from the end of 2018 to the beginning of 2019. I completed the bulk of the website development over the summer of 2019 so that we could have a grand reveal of the new design during the fall 2020 activities fair at Brown University.&lt;/p&gt;
 &lt;p&gt;We built the new website theme from scratch and used the following technologies:&lt;/p&gt;
 &lt;ul&gt;
@@ -38,7 +38,7 @@
 &lt;/ul&gt;
 &lt;p&gt;We also performed content migration and changed 
 &lt;a href=&#34;https://www.digitalocean.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hosting services&lt;/a&gt; as part of this project.&lt;/p&gt;
-&lt;p&gt;You can see the website at &lt;a href=&#34;http://brownpoliticalreview.org/&#34;&gt;http://brownpoliticalreview.org/&lt;/a&gt;. According to page loading benchmarks from 
+&lt;p&gt;You can see the website at &lt;a href=&#34;https://brownpoliticalreview.org/&#34;&gt;https://brownpoliticalreview.org/&lt;/a&gt;. According to page loading benchmarks from 
 &lt;a href=&#34;https://tools.pingdom.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pingdom&lt;/a&gt;, this website loads up to 10 times faster than the one that it replaces.&lt;/p&gt;
 &lt;p&gt;Currently, I continue to lead the development and maintenance of the Brown Political Review&amp;rsquo;s website.&lt;/p&gt;
 </description>
