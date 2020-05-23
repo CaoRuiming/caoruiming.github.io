@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python | Raymond Cao&#39;s Website</title>
-    <link>https://caoruiming.github.io/tag/python/</link>
-      <atom:link href="https://caoruiming.github.io/tag/python/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.raymondcao.dev/tag/python/</link>
+      <atom:link href="https://www.raymondcao.dev/tag/python/index.xml" rel="self" type="application/rss+xml" />
     <description>Python</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Dec 2019 17:36:03 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Raymond Cao</copyright><lastBuildDate>Sun, 01 Dec 2019 17:36:03 -0400</lastBuildDate>
     <image>
-      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
       <title>Python</title>
-      <link>https://caoruiming.github.io/tag/python/</link>
+      <link>https://www.raymondcao.dev/tag/python/</link>
     </image>
     
     <item>
       <title>Detecting Fake News with CNNs &amp; RNNs</title>
-      <link>https://caoruiming.github.io/project/gradient-ascent/</link>
+      <link>https://www.raymondcao.dev/project/gradient-ascent/</link>
       <pubDate>Sun, 01 Dec 2019 17:36:03 -0400</pubDate>
-      <guid>https://caoruiming.github.io/project/gradient-ascent/</guid>
+      <guid>https://www.raymondcao.dev/project/gradient-ascent/</guid>
       <description>&lt;p&gt;As the final project of Brown University&amp;rsquo;s 
 &lt;a href=&#34;http://cs.brown.edu/courses/csci1470/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deep Learning&lt;/a&gt; course, I teamed up with 3 classmates to reimplement the models and reproduce the results from the paper 
 &lt;a href=&#34;https://arxiv.org/pdf/1806.11316.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Fake News Identification on Twitter with Hybrid CNN and RNN Models&lt;/em&gt; (2018)&lt;/a&gt;.&lt;/p&gt;
@@ -40,9 +40,9 @@
     
     <item>
       <title>Data Analysis on U.S. Broadband</title>
-      <link>https://caoruiming.github.io/project/broadband-data/</link>
+      <link>https://www.raymondcao.dev/project/broadband-data/</link>
       <pubDate>Wed, 01 May 2019 18:09:34 -0400</pubDate>
-      <guid>https://caoruiming.github.io/project/broadband-data/</guid>
+      <guid>https://www.raymondcao.dev/project/broadband-data/</guid>
       <description>&lt;p&gt;This was my final project for Brown University&amp;rsquo;s 
 &lt;a href=&#34;https://cs.brown.edu/courses/csci1951-a/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Science&lt;/a&gt; course, and I worked in a group with 3 other classmates.&lt;/p&gt;
 &lt;p&gt;The purpose of our project was to pull in U.S. Census data and combine it with state and FCC-provided broadband deployment data to gain insight on trends in inequal American broadband availability and get a general sense of the state of deployment.&lt;/p&gt;

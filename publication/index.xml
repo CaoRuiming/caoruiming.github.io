@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | Raymond Cao&#39;s Website</title>
-    <link>https://caoruiming.github.io/publication/</link>
-      <atom:link href="https://caoruiming.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.raymondcao.dev/publication/</link>
+      <atom:link href="https://www.raymondcao.dev/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Raymond Cao</copyright>
     <image>
-      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
       <title>Publications</title>
-      <link>https://caoruiming.github.io/publication/</link>
+      <link>https://www.raymondcao.dev/publication/</link>
     </image>
     
   </channel>

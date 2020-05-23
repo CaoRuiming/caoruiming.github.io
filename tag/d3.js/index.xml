@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>D3.js | Raymond Cao&#39;s Website</title>
-    <link>https://caoruiming.github.io/tag/d3.js/</link>
-      <atom:link href="https://caoruiming.github.io/tag/d3.js/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.raymondcao.dev/tag/d3.js/</link>
+      <atom:link href="https://www.raymondcao.dev/tag/d3.js/index.xml" rel="self" type="application/rss+xml" />
     <description>D3.js</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2020 12:30:30 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Raymond Cao</copyright><lastBuildDate>Fri, 01 May 2020 12:30:30 -0400</lastBuildDate>
     <image>
-      <url>https://caoruiming.github.io/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
       <title>D3.js</title>
-      <link>https://caoruiming.github.io/tag/d3.js/</link>
+      <link>https://www.raymondcao.dev/tag/d3.js/</link>
     </image>
     
     <item>
       <title>Brown Political Review Website</title>
-      <link>https://caoruiming.github.io/project/brown-political-review/</link>
+      <link>https://www.raymondcao.dev/project/brown-political-review/</link>
       <pubDate>Fri, 01 May 2020 12:30:30 -0400</pubDate>
-      <guid>https://caoruiming.github.io/project/brown-political-review/</guid>
+      <guid>https://www.raymondcao.dev/project/brown-political-review/</guid>
       <description>&lt;p&gt;The 
 &lt;a href=&#34;https://brownpoliticalreview.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brown Political Review&lt;/a&gt; (BPR) is a student run publication at Brown University. In the fall of 2018, I was hired by BPR to lead its effort to build a new website to replace its slow, aging one.&lt;/p&gt;
 &lt;p&gt;The original website was an old WordPress site that used an outdated premade theme. Partnering with designers from the Creative Board of BPR, we planned out the look and functionality of the new website from the end of 2018 to the beginning of 2019. I completed the bulk of the website development over the summer of 2019 so that we could have a grand reveal of the new design during the fall 2020 activities fair at Brown University.&lt;/p&gt;
@@ -46,9 +46,9 @@
     
     <item>
       <title>Data Analysis on U.S. Broadband</title>
-      <link>https://caoruiming.github.io/project/broadband-data/</link>
+      <link>https://www.raymondcao.dev/project/broadband-data/</link>
       <pubDate>Wed, 01 May 2019 18:09:34 -0400</pubDate>
-      <guid>https://caoruiming.github.io/project/broadband-data/</guid>
+      <guid>https://www.raymondcao.dev/project/broadband-data/</guid>
       <description>&lt;p&gt;This was my final project for Brown University&amp;rsquo;s 
 &lt;a href=&#34;https://cs.brown.edu/courses/csci1951-a/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Science&lt;/a&gt; course, and I worked in a group with 3 other classmates.&lt;/p&gt;
 &lt;p&gt;The purpose of our project was to pull in U.S. Census data and combine it with state and FCC-provided broadband deployment data to gain insight on trends in inequal American broadband availability and get a general sense of the state of deployment.&lt;/p&gt;
