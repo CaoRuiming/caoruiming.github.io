@@ -5,9 +5,9 @@
     <link>https://www.raymondcao.dev/</link>
       <atom:link href="https://www.raymondcao.dev/index.xml" rel="self" type="application/rss+xml" />
     <description>Raymond Cao&#39;s Website</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Raymond Cao</copyright><lastBuildDate>Thu, 14 May 2020 12:22:39 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2022 Raymond Cao</copyright><lastBuildDate>Thu, 14 May 2020 12:22:39 -0400</lastBuildDate>
     <image>
-      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_3.png</url>
       <title>Raymond Cao&#39;s Website</title>
       <link>https://www.raymondcao.dev/</link>
     </image>
@@ -64,7 +64,7 @@
 &lt;p&gt;Now, after almost two centuries, the mystery of what sparked this odd phenomenon is finally solved.&lt;/p&gt;
 &lt;p&gt;Dr. Jorge Perez, an evolutionary biologist from the University of La Paz, and several companions, were exploring the Andes Mountains when they found a small valley, with no other animals or humans. Perez noticed that the valley had what appeared to be a natural fountain, surrounded by two peaks of rock and silver snow.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Note that GPT-2 did not confuse pronouns like &amp;lsquo;this&amp;rsquo; and remembered the name of the scientist across different sentences. Although these details seem trivial to native English speakers, older language models that have used architectures like LSTMs (long short term memory) struggle to maintain a cohesive narrative across multiple sentences. GPT-2&amp;rsquo;s impressive capacity to &amp;ldquo;understand&amp;rdquo; the English language comes from its 1.5 billion trainable parameters and the 
+&lt;p&gt;Note that GPT-2 did not confuse pronouns like &amp;rsquo;this&amp;rsquo; and remembered the name of the scientist across different sentences. Although these details seem trivial to native English speakers, older language models that have used architectures like LSTMs (long short term memory) struggle to maintain a cohesive narrative across multiple sentences. GPT-2&amp;rsquo;s impressive capacity to &amp;ldquo;understand&amp;rdquo; the English language comes from its 1.5 billion trainable parameters and the 
 &lt;a href=&#34;https://openai.com/blog/better-language-models/#fn1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;40GB of website text&lt;/a&gt; that it was trained on.&lt;/p&gt;
 &lt;h2 id=&#34;applying-gpt-2&#34;&gt;Applying GPT-2&lt;/h2&gt;
 &lt;p&gt;GPT-2 generates output one word at a time using the preceding words as input, similar to how a smartphone&amp;rsquo;s virtual keyboard can suggest the next word you want to type. The model suggests each output word using the trained knowledge represented by its 1.5 billion trainable parameters.&lt;/p&gt;
@@ -283,7 +283,8 @@
 &lt;/ul&gt;
 &lt;p&gt;We also performed content migration and changed 
 &lt;a href=&#34;https://www.digitalocean.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hosting services&lt;/a&gt; as part of this project.&lt;/p&gt;
-&lt;p&gt;You can see the website at &lt;a href=&#34;https://brownpoliticalreview.org/&#34;&gt;https://brownpoliticalreview.org/&lt;/a&gt;. According to page loading benchmarks from 
+&lt;p&gt;You can see the website at 
+&lt;a href=&#34;https://brownpoliticalreview.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://brownpoliticalreview.org/&lt;/a&gt;. According to page loading benchmarks from 
 &lt;a href=&#34;https://tools.pingdom.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pingdom&lt;/a&gt;, this website loads up to 10 times faster than the one that it replaces.&lt;/p&gt;
 &lt;p&gt;Currently, I continue to lead the development and maintenance of the Brown Political Review&amp;rsquo;s website.&lt;/p&gt;
 </description>
@@ -381,7 +382,8 @@ ssh: key
 &lt;blockquote&gt;
 &lt;p&gt;Determining the truthfulness of a statement without context is a difficult problem. We were only able to achieve a 25.78% accuracy on our dataset, which may seem low, but is close to the paper’s 27% accuracy. For reference, we attempted to classify training examples by hand and achieved an accuracy that was far less than 25.78%, and in fact, no better than random guessing. Many statements in our dataset, such as “The economy bled $24 billion due to the government shutdown,” are virtually impossible to factually evaluate without an external reference. Others, such as “We have a federal government that thinks they have the authority to regulate our toilet seats,” are subjective, opinionated, or don’t have a well-defined truth value. Some statements did contain certain words that made them identifiable as true, or more frequently, false. For instance, the sentence “In the case of a catastrophic event, the Atlanta-area offices of the Centers for Disease Control and Prevention will self-destruct,” includes the word ‘self-destruct’ that is associated with fictional stories, implying that it is false. Perhaps our model learned to make classifications by looking for such words.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;You can find the source code of the project at &lt;a href=&#34;https://github.com/CaoRuiming/gradient-ascent-project&#34;&gt;https://github.com/CaoRuiming/gradient-ascent-project&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can find the source code of the project at 
+&lt;a href=&#34;https://github.com/CaoRuiming/gradient-ascent-project&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/CaoRuiming/gradient-ascent-project&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -394,8 +396,10 @@ ssh: key
 &lt;a href=&#34;https://cs.brown.edu/courses/csci1951-a/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Science&lt;/a&gt; course, and I worked in a group with 3 other classmates.&lt;/p&gt;
 &lt;p&gt;The purpose of our project was to pull in U.S. Census data and combine it with state and FCC-provided broadband deployment data to gain insight on trends in inequal American broadband availability and get a general sense of the state of deployment.&lt;/p&gt;
 &lt;p&gt;My personal role was performing a k-mean analysis on internet access choice in New York to find if the proportions of forms of broadband deployment could reveal the most economical way to build out networks and close the digital divide.&lt;/p&gt;
-&lt;p&gt;Our intermediate and final blog reports on this project can be read at &lt;a href=&#34;https://caoruiming.github.io/data-science-final-project/&#34;&gt;https://caoruiming.github.io/data-science-final-project/&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can see the source code of the project at &lt;a href=&#34;https://github.com/CaoRuiming/data-science-final-project&#34;&gt;https://github.com/CaoRuiming/data-science-final-project&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our intermediate and final blog reports on this project can be read at 
+&lt;a href=&#34;https://caoruiming.github.io/data-science-final-project/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://caoruiming.github.io/data-science-final-project/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can see the source code of the project at 
+&lt;a href=&#34;https://github.com/CaoRuiming/data-science-final-project&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/CaoRuiming/data-science-final-project&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -428,7 +432,8 @@ ssh: key
 &lt;a href=&#34;https://reactjs.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React.js&lt;/a&gt; app that took in Chinese text and output the corresponding pinyin (a writing system that denotes the pronunciation of Chinese characters) as well as English translations of user-selected text. The application was built entirely out of open source technologies, works offline, and works across any platform that supports web browsing.&lt;/p&gt;
 &lt;p&gt;The purpose of this project was to assist English-speaking students in learning to read (simplified) Chinese. Every member of our hackathon project group enjoyed reading translated Chinese web novels in our free time, so we decided to build a tool to help us read the &amp;ldquo;raws&amp;rdquo; (i.e. the source material written in the original language).&lt;/p&gt;
 &lt;p&gt;My primary role on the team was the React.js developer, and I lead the technical development of our app.&lt;/p&gt;
-&lt;p&gt;You can view the source code of this project, Biang Biang, at &lt;a href=&#34;https://github.com/CaoRuiming/biangbiang&#34;&gt;https://github.com/CaoRuiming/biangbiang&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can view the source code of this project, Biang Biang, at 
+&lt;a href=&#34;https://github.com/CaoRuiming/biangbiang&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/CaoRuiming/biangbiang&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

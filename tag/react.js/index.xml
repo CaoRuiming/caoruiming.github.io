@@ -5,9 +5,9 @@
     <link>https://www.raymondcao.dev/tag/react.js/</link>
       <atom:link href="https://www.raymondcao.dev/tag/react.js/index.xml" rel="self" type="application/rss+xml" />
     <description>React.js</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2020 Raymond Cao</copyright><lastBuildDate>Tue, 01 May 2018 17:19:22 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Copyright © 2022 Raymond Cao</copyright><lastBuildDate>Tue, 01 May 2018 17:19:22 -0400</lastBuildDate>
     <image>
-      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_2.png</url>
+      <url>https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_512x512_fill_lanczos_center_3.png</url>
       <title>React.js</title>
       <link>https://www.raymondcao.dev/tag/react.js/</link>
     </image>
@@ -22,7 +22,8 @@
 &lt;a href=&#34;https://reactjs.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React.js&lt;/a&gt; app that took in Chinese text and output the corresponding pinyin (a writing system that denotes the pronunciation of Chinese characters) as well as English translations of user-selected text. The application was built entirely out of open source technologies, works offline, and works across any platform that supports web browsing.&lt;/p&gt;
 &lt;p&gt;The purpose of this project was to assist English-speaking students in learning to read (simplified) Chinese. Every member of our hackathon project group enjoyed reading translated Chinese web novels in our free time, so we decided to build a tool to help us read the &amp;ldquo;raws&amp;rdquo; (i.e. the source material written in the original language).&lt;/p&gt;
 &lt;p&gt;My primary role on the team was the React.js developer, and I lead the technical development of our app.&lt;/p&gt;
-&lt;p&gt;You can view the source code of this project, Biang Biang, at &lt;a href=&#34;https://github.com/CaoRuiming/biangbiang&#34;&gt;https://github.com/CaoRuiming/biangbiang&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can view the source code of this project, Biang Biang, at 
+&lt;a href=&#34;https://github.com/CaoRuiming/biangbiang&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/CaoRuiming/biangbiang&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

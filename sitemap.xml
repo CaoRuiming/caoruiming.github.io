@@ -1,139 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://www.raymondcao.dev/project/gpt2-farewell/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/gpt-2/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/nlp/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/post/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/project/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tags/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/tensorflow/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/post/gpt2-farewell/</loc>
     <lastmod>2020-05-14T12:22:39-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/project/brown-political-review/</loc>
     <lastmod>2020-05-01T12:30:30-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/d3.js/</loc>
     <lastmod>2020-05-01T12:30:30-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/scss/</loc>
     <lastmod>2020-05-01T12:30:30-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/wordpress/</loc>
     <lastmod>2020-05-01T12:30:30-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/post/sshfs-guide/</loc>
     <lastmod>2020-01-01T12:27:49-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/project/gradient-ascent/</loc>
     <lastmod>2019-12-01T17:36:03-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/python/</loc>
     <lastmod>2019-12-01T17:36:03-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/project/broadband-data/</loc>
     <lastmod>2019-05-01T18:09:34-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/data-science/</loc>
     <lastmod>2019-05-01T18:09:34-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/privacy/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/terms/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/project/biang-biang/</loc>
     <lastmod>2018-05-01T17:19:22-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/tag/react.js/</loc>
     <lastmod>2018-05-01T17:19:22-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/authors/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/publication_types/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/publication/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/author/raymond-cao/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.raymondcao.dev/talk/</loc>
   </url>
-  
 </urlset>
