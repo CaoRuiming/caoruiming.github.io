@@ -1,1179 +1,1352 @@
-<!DOCTYPE html><html lang="en-us" >
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.8.0">
-
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Raymond Cao">
-
-  
-  
-  
-    
-  
-  <meta name="description" content="In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents.">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://www.raymondcao.dev/post/gpt2-farewell/">
-
-  
-
-
-  
-  
-  
-  <meta name="theme-color" content="#2962ff">
-  
-
-  
-  
-
-  
-  
-  
-  
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
-    
-
-    
-
-    
-
-    
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-        
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  
-
-  
-  
-  
-  
-  <link rel="stylesheet" href="/css/academic.css">
-
-  
-
-
-
-
-  
-
-
-  
-  
-
-  
-
-  <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_32x32_fill_lanczos_center_3.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_192x192_fill_lanczos_center_3.png">
-
-  <link rel="canonical" href="https://www.raymondcao.dev/post/gpt2-farewell/">
-
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  
-  <meta property="twitter:card" content="summary_large_image">
-  
-  <meta property="og:site_name" content="Raymond Cao&#39;s Website">
-  <meta property="og:url" content="https://www.raymondcao.dev/post/gpt2-farewell/">
-  <meta property="og:title" content="Writing Presidential Farewells with GPT-2 | Raymond Cao&#39;s Website">
-  <meta property="og:description" content="In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents."><meta property="og:image" content="https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg">
-  <meta property="twitter:image" content="https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg"><meta property="og:locale" content="en-us">
-  
-    
-      <meta property="article:published_time" content="2020-05-14T12:22:39-04:00">
-    
-    <meta property="article:modified_time" content="2020-05-14T12:22:39-04:00">
-  
-
-  
-
-
-    
-
-
-
-
-
-
-  
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.raymondcao.dev/post/gpt2-farewell/"
-  },
-  "headline": "Writing Presidential Farewells with GPT-2",
-  
-  "image": [
-    "https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg"
-  ],
-  
-  "datePublished": "2020-05-14T12:22:39-04:00",
-  "dateModified": "2020-05-14T12:22:39-04:00",
-  
-  "author": {
-    "@type": "Person",
-    "name": "Raymond Cao"
-  },
-  
-  "publisher": {
-    "@type": "Organization",
-    "name": "Raymond Cao's Website",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_192x192_fill_lanczos_center_3.png"
-    }
-  },
-  "description": "In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents."
-}
-</script>
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-
-  <title>Writing Presidential Farewells with GPT-2 | Raymond Cao&#39;s Website</title>
-
-</head>
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
-
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
-
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-  
-
-
-
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-
-    
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Raymond Cao&#39;s Website</a>
-    </div>
-    
-
-    
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    
-
-    
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Raymond Cao&#39;s Website</a>
-    </div>
-    
-
-    
-    
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-
-      
-      <ul class="navbar-nav d-md-inline-flex">
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#about"><span>Home</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#posts"><span>Posts</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Contact</span></a>
-        </li>
-
-        
-        
-
-      
-
-        
-      </ul>
-    </div>
-
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-      
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      
-
-      
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
-          <i class="fas fa-palette" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-      
-
-      
-
-    </ul>
-
-  </div>
-</nav>
-
-
-  <article class="article">
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-<div class="article-container pt-3">
-  <h1>Writing Presidential Farewells with GPT-2</h1>
-
-  
-
-  
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    May 14, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    20 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
-  <div style="position: relative">
-    <img src="/post/gpt2-farewell/featured_huebd17c7f4bc89c42cf2a86ee18402685_218719_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Photo by 
-<a href="https://unsplash.com/@jxb511?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">John Bakator</a> on 
-<a href="https://unsplash.com/s/photos/constitution?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a></span>
-  </div>
-</div>
-
-
-
-  <div class="article-container">
-
-    <div class="article-style">
-      <p>Hello! This post is a final project write-up for the class 
-<a href="https://bulletin.brown.edu/the-college/concentrations/clas/index.html?find=CLAS%201120U" target="_blank" rel="noopener"><em>The American Presidents and the Western Tradition</em> (CLAS1120U)</a> at Brown University. I assume no computer science background when I present content on this page.</p>
-<h2 id="intro">Intro</h2>
-<p>GPT-2, which stands for Generative Pretrained Transformer 2, is a cutting-edge English language model developed and released by research group 
-<a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a> in 2019. This model generates realistic passages of English text given any arbitrary prompt. In fact, GPT-2&rsquo;s output could be so convincing that the model&rsquo;s creators declined to publish the 
-<a href="https://github.com/openai/gpt-2" target="_blank" rel="noopener">actual model</a> until months after the 
-<a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener">original paper</a> for fear that it would be used to overwhelm social media with hard-to-filter disinformation and propaganda.</p>
-<p>Now we can find many fun projects on the internet that use the power of GPT-2:</p>
-<ul>
-<li>
-<a href="https://www.thisworddoesnotexist.com/" target="_blank" rel="noopener">This Word Does not Exist</a>: a random dictionary entry generator that creates fake English words and assigns them fake (but not unreasonable) definitions</li>
-<li>
-<a href="https://aidungeon.io/" target="_blank" rel="noopener">AI Dungeon</a>: an open-world choose-your-adventure style game that generates a plot on the fly according to typed responses from players</li>
-</ul>
-<p>Of course, there exist less innocent applications of GPT-2, but that&rsquo;s not what I want to look at here.</p>
-<p>The purpose of this project is to use GPT-2 to analyze and generate farewell speeches for several U.S. Presidents and find which tones, anecdotes, and syntactic details the model finds significant.</p>
-<p>We will use the 
-<a href="https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/farewell-addresses-washington-1796-jackson-1837" target="_blank" rel="noopener">farewell addresses</a> of the following presidents:</p>
-<ul>
-<li>
-<a href="https://www.presidency.ucsb.edu/documents/farewell-address-0" target="_blank" rel="noopener">Andrew Jackson</a> &ndash; 1837</li>
-<li>
-<a href="https://www.presidency.ucsb.edu/documents/remarks-departure-from-the-white-house" target="_blank" rel="noopener">Richard Nixon</a> (farewell to White House staff) &ndash; 1974</li>
-<li>
-<a href="https://www.presidency.ucsb.edu/documents/farewell-address-the-nation" target="_blank" rel="noopener">Ronald Reagan</a> &ndash; 1989</li>
-</ul>
-<h2 id="how-gpt-2-works">How GPT-2 Works</h2>
-<p>GPT-2 is a transformer-based language model. This means that the way it generates each word of its output depends primarily on the presence of each word in the input or prompt. In terms of basic math, you can think of this as each word of the output is determined by a weighted sum of the input words (and we have a way to represent the concept of each word as a series of numbers). This concept is called <em>attention</em> because each of the words of the output pay attention to each of the words of the input. Transformers are models that almost entirely rely on attention.</p>
-<p>Below is a visualization of attention heads presented in the paper 
-<a href="https://arxiv.org/pdf/1706.03762.pdf" target="_blank" rel="noopener"><em>Attention Is All You Need</em></a>. The opacities of the lines correspond to the amount of &ldquo;attention&rdquo; each attention head has on the other words.</p>
-<p><img src="attention.jpg" alt="Attention visualized"></p>
-<p>The full architecture of GPT-2 is a bit more complicated than what&rsquo;s outlined here, but it is essentially a massively scaled-up version of a transformer model.</p>
-<p>Here&rsquo;s an example of 
-<a href="https://openai.com/blog/better-language-models/#samples" target="_blank" rel="noopener">text generated</a> by GPT-2 from OpenAI&rsquo;s website. The model was given a writing prompt about a scientist discovering unicorns in the Andes Mountains.</p>
-<blockquote>
-<p>The scientist named the population, after their distinctive horn, Ovid’s Unicorn. These four-horned, silver-white unicorns were previously unknown to science.</p>
-<p>Now, after almost two centuries, the mystery of what sparked this odd phenomenon is finally solved.</p>
-<p>Dr. Jorge Perez, an evolutionary biologist from the University of La Paz, and several companions, were exploring the Andes Mountains when they found a small valley, with no other animals or humans. Perez noticed that the valley had what appeared to be a natural fountain, surrounded by two peaks of rock and silver snow.</p>
-</blockquote>
-<p>Note that GPT-2 did not confuse pronouns like &rsquo;this&rsquo; and remembered the name of the scientist across different sentences. Although these details seem trivial to native English speakers, older language models that have used architectures like LSTMs (long short term memory) struggle to maintain a cohesive narrative across multiple sentences. GPT-2&rsquo;s impressive capacity to &ldquo;understand&rdquo; the English language comes from its 1.5 billion trainable parameters and the 
-<a href="https://openai.com/blog/better-language-models/#fn1" target="_blank" rel="noopener">40GB of website text</a> that it was trained on.</p>
-<h2 id="applying-gpt-2">Applying GPT-2</h2>
-<p>GPT-2 generates output one word at a time using the preceding words as input, similar to how a smartphone&rsquo;s virtual keyboard can suggest the next word you want to type. The model suggests each output word using the trained knowledge represented by its 1.5 billion trainable parameters.</p>
-<p>For this project, I can tweak these parameters so they they imitate a specific writing style by training GPT-2 on a text example using the writing style I want it to learn.</p>
-<p>Here is a general overview of the training process:</p>
-<ol>
-<li>Get an output from GPT-2</li>
-<li>Append the output to the text preceding it and compare the result to the training text that we want to learn about</li>
-<li>Slightly adjust GPT-2&rsquo;s parameters so that the next output will be more similar to the training text than the last output</li>
-<li>Repeat steps 1-3 until we (the humans) decide that GPT-2 has learned enough</li>
-</ol>
-<p>This process is volatile and stochastic &ndash;  we will not get the same results from every training session. If we&rsquo;re not careful, it&rsquo;s easy for the model to do things we don&rsquo;t want &ndash; like memorizing and outputting the training text word-for-word.</p>
-<p>Additionally, updating the 1.5 billion parameters of GPT-2 requires a lot computation power and time, so I used a 
-<a href="https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing" target="_blank" rel="noopener">Google Colaboratory document</a> with a GPU (graphics processing unit) to accelerate the training process.</p>
-<p>For more technical details on how I fine-tuned GPT-2, I recommending reading through Max Woolf&rsquo;s 
-<a href="https://minimaxir.com/2019/09/howto-gpt2/" target="_blank" rel="noopener">excellent guide</a>.</p>
-<p>When doing this project, I trained GPT-2 separately on each presidential farewell for a short amount of time (measured in terms of number of times we perform the process loop above). The idea was for GPT-2 to begin learning parts the writing style without having enough time to memorize the farewells. Thus, whatever these customized GPT-2 models learned was likely to be more characteristic of the training texts, and we can parse these learned characteristics through the model outputs.</p>
-<p>So, without further ado, let&rsquo;s look at some GPT-2 output!</p>
-<h2 id="results">Results</h2>
-<p>Note that the passages presented here are cherry-picked because performing an accurate statistical analsysis is out of scope for this project, but we can still draw insights from these paragraphs. The themes and structures that make it through to these generated texts are likely the most important components of their respective source speeches.</p>
-<p>None of these generated farewells would pass as human-written. This is expected because:</p>
-<ul>
-<li>The additional training data that I gave GPT-2 data is tiny &ndash; I would need several books worth of training material to realize the full power of the model</li>
-<li>GPT-2 has several differently-sized variants &ndash; I chose to use the smallest, least powerful version (124M) for performance reasons (the larger ones would have taken hours to fine-tune)</li>
-</ul>
-<p>When calling on GPT-2 to generate each of these speeches, I gave them following starting prompt: <strong>&ldquo;Farewell&rdquo;</strong></p>
-<h3 id="jacksons-farewell-originally-delivered-on-1837">Jackson&rsquo;s Farewell (originally delivered on 1837)</h3>
-<blockquote>
-<p>Farewell, my friend and fellow-citizens, to the present day, and to the new and improved condition of our country.</p>
-</blockquote>
-<p>Much like the original farewell, this speech appeals to the paternal figure of Washington as an unambiguous source of authority:</p>
-<blockquote>
-<p>We have now passed to your present address by General Washington, who has at length left us a message of peace. He has warned us, with your most worthy counsels, that the strongest Union is the one to which we should be ready to sacrifice our lives for its preservation. The seeds of revolution have already been sown in your bosoms, and the warning counsels of his countrymen have been taken from him. He has had us drawn into a conflict, and he has blasted us from our high cities and thrown us upon the new and exciting pages of history, warning us of the danger and the need of perseverance and of securing to every quarter of the Union the blessings of peace. He has spared no life by his example or by his example&rsquo;s sake, and we are prepared to submit to his authority and to stand ready to be his protectors, if need be, against his will. He has always known that a Union armed with arms would soon be drawn out of the Union; and since he has given no consideration to the eternal consequences of his decision, we are assured that he will not grant it.</p>
-</blockquote>
-<p>The uncertainty around the stability of the U.S. sticks around:</p>
-<blockquote>
-<p>The public anxiety over the Union has been so great that the General Government has ceased to be the true sphere of public action; and there is no longer a need for any government to govern it. The people of every quarter of the country have already felt their rights laid before them, and their rights have been faithfully sustained in the election of our new President.</p>
-</blockquote>
-<p>GPT-2 learns well Jackson&rsquo;s passionate speech about the banking and currency systems of the U.S.:</p>
-<blockquote>
-<p>But we are now in the midst of a severe attack on our institutions in the several cities and on our commerce. The great cities and towns in our own cities, with their high taxes and burdens, have been turned into spoliation-demons, and the citizens of other cities and tribes are now compelled with harsh dissensions to become the guardians of a new Federal Government. The commercial establishments in these cities depend almost entirely on gold and silver, and a growing number of such privileges and advantages are now given to us in the currency of paper. The currency is the currency of convenience, and since gold and silver are found exclusively in the cities, and the money circulating in these cities is readily circulating in other cities, the doors of which we have been intrusted have been wide open for the corporations to obtain a share of the currency and to obtain for themselves the desirable advantages of money. [See note to Millennial Star, p. 78.]</p>
-</blockquote>
-<p>There are many warnings here of the potential perils that may overtake the American people&rsquo;s government, similar to the numerous warnings in Jackson&rsquo;s original speech:</p>
-<blockquote>
-<p>These evils are constantly at work in every part of the country, and the corporations have no choice but to inflict them upon us. With increasing numbers they are endeavoring to influence the Government into giving too much gold to every city-house and to place too great a value upon money. Under the influence of these schemes, or the plans advanced by the corporations, the Government is endeavoring to reform the currency in order to obtain for the corporations a share of the currency, and to secure to them a share of the currency a share of the wealth of the country, if they may be permitted to obtain it. From these schemes of injustice and corruption are continually thrown upon our public institutions, and the suggestions of these corporations have generated serious and resounding alarm in the politicians of every city and district. The consequences of these schemes must not be forgotten, for they will soon be discovered and crushed.</p>
-<p>These severe measures and the constant encouragement given to them have impressed upon us the deep anxiety and danger which pervaded before the Revolution, and we are come to the hour when the warning cry of the General Government will be overthrown. The corporations will have succeeded in obtaining a share of the currency by taking away from the people a share of the money power, and this evil will now be felt in every part of the country.</p>
-<p>In the cities especially where the corporations have concentrated their operations, the real evils of the present situation are continually at work. The multitude of idle speculators and property speculators in every quarter of the country are endeavoring to impost upon the public treasury a surplus of money in order to obtain for themselves a share of the money power; and from the number of cities in the several States, with their high taxes and burdens, and the high price of goods, the corporations are prepared to sacrifice a large part of the income of the State into the hands of the rich and powerful, and to collect a surplus for themselves by taxing the people at large. These corporations are engaged in a most article of commerce, and they are prepared to sacrifice a portion of the surplus revenue for their own gain; but we are told that they have no choice but to pay the heavy taxes imposed on them, as their revenue will be wholly used for their own benefit; and the heavy debts they are now in debt will soon become more and more severe. The temptation is too great for vain hope, and the time has come when the people in every quarter of the country shall be permitted to be</p>
-</blockquote>
-<p>This will become obvious, but the difference in syntax and structure between this generated speech and the newer farewells is stark. Jackson has fewer, yet significantly longer and complex paragraphs. The general vocabulary used also becomes simpler in the recent speeches.</p>
-<h3 id="nixons-farewell-originally-delivered-on-1974">Nixon&rsquo;s Farewell (originally delivered on 1974)</h3>
-<blockquote>
-<p>Farewell, my boys and girls.</p>
-</blockquote>
-<p>Nixon&rsquo;s message that he was proud of the people of his administration shines through here:</p>
-<blockquote>
-<p>I want you to know that, as I said, I am proud of this Cabinet. I am proud of all the members who have served in our Cabinet. I am proud of our sub-Cabinet. I am proud of our White House Staff. We are grateful to all who have supported us or assisted us in our many missions. And most important, we are proud of this House for what it has done for many years: Ordered houses, and all houses, of the United States Congress.</p>
-</blockquote>
-<p>Here&rsquo;s a hint of Nixon&rsquo;s discussion on the greatness of the White House (both the people and the building):</p>
-<blockquote>
-<p>I was proud of it. I am proud of it for being the largest house in the world, and I am proud of all the members and staffs who have served in our Cabinet.</p>
-</blockquote>
-<p>Repetition of a simple phrase as a rhetorical device; this is more prominent in speeches of the television era:</p>
-<blockquote>
-<p>I am proud of our sub-Cabinet. I am proud of our sub-Cabinet. and I am proud of our White House Staff.</p>
-<p>I am proud of our White House Staff. We are proud of our White House Staff.</p>
-<p>We have been generous. We have been generous in sacrifice. And most important, we are as proud as we are of it&mdash;5 1/2 years, 92% FFA, 59% CFP, 58% AAA, 57% EP, 55% MT, 54% SA, 53% AF, 2% MT, 1% AF, 1% MT, 0% NA</p>
-</blockquote>
-<p>The most unique part of Nixon&rsquo;s Farewell was the theme of admitting mistakes (i.e. Watergate), and GTP-2 does not miss this:</p>
-<blockquote>
-<p>Mistakes, yes. But for personal gain, never. And I only wish that I were a wealthy man-at the present time, I have got to find a way to pay my taxes&ndash;[laughter]&ndash;and if I were, I would like to recompense you for the sacrifices that all of you have made to serve in government.</p>
-</blockquote>
-<p>Nixon&rsquo;s praise of the U.S.&rsquo;s strength and message of the importance of passing the torch to younger generations are present here:</p>
-<blockquote>
-<p>But you are getting something in government-and I want you to tell this to your children, and I hope the Nation&rsquo;s children will hear it, too&ndash;something in government service that is far more important than money. It is the cause of making this the greatest nation in the world, the leader of the world, because without our leadership it can&rsquo;t possibly grow, it can&rsquo;t possibly win, it can&rsquo;t possibly win only because of our people.</p>
-<p>We have been generous. We have been generous in sacrifice.</p>
-<p>And, most important, we are as proud as we are of it&mdash;5 1/2 years, 92% FFA, 59% FPA, 59% A, B, and C, natch?</p>
-</blockquote>
-<p>The theme of admitting mistakes is so strong that it appears again:</p>
-<blockquote>
-<p>Mistakes, yes. But for personal gain, never. And I only wish that I were a wealthy man-at the present time, I have got to find a way to pay my taxes&ndash;[laughter]&ndash;and if I were, I would like to recompense you for the sacrifices that all of you have made to serve in government.</p>
-</blockquote>
-<h3 id="reagans-farewell-originally-delivered-on-1989">Reagan&rsquo;s Farewell (originally delivered on 1989)</h3>
-<p>Before we continue here, I will warn you that the more modern farewells may be more obviously affected by the bias within GPT-2&rsquo;s original training dataset. More details are in the 
-<a href="#conclusion">conclusion section</a>.</p>
-<p>Below is perhaps indicative of the more informal language used in modern political speeches:</p>
-<blockquote>
-<p>Farewell, people. You&rsquo;ve been living under a rock.</p>
-<p>I&rsquo;m leaving with a big smile on my face. And a big kiss on the cheek.</p>
-</blockquote>
-<p>GPT-2 touches on strong Reagan-era American nationalism:</p>
-<blockquote>
-<p>We&rsquo;ve met so many great victories. We Americans. And yet, the past 8 years have been filled with uncertainty, mistrust, and confusion. We Americans have lost count of the number of our kind who have sought to influence an increasingly important national question.</p>
-<p>I know this is some personal frustration, but we Americans know it&rsquo;s true. Our view on foreign affairs has always been the same. Our program has always been the same: Deal with adversity, and build strong institutions – the United States Congress.</p>
-<p>We the people have always been more ready to accept change and to count on you. President Truman and Congress have been remarkable teachers.</p>
-<p>We the People have always been more ready to count on our influence. And continue to count on our count.</p>
-</blockquote>
-<p>Here is a reference to Reagan&rsquo;s famous tax cuts, which he brags about in the original farewell:</p>
-<blockquote>
-<p>We cut taxes, and the programs that limited the government. We cut the bloated, the administrative. We dried up the American superstate. We crumbled the Communist-controlled Asia.</p>
-</blockquote>
-<p>Reagan&rsquo;s points on reducing bureaucratic overhead also makes it through:</p>
-<blockquote>
-<p>We&rsquo;ve cut the bloated, the administrative, and we&rsquo;ve crumbled the superstate&rsquo;s defenses. It now functions like a show, intrigue, and war. But restraint requires smart diplomacy and long-term planning.</p>
-<p>We May Receive Midsummaries from the Russian and American Distinguished Visits</p>
-</blockquote>
-<p>This section may seem odd, but it corresponds to Reagan&rsquo;s anecdote about travelling through Arbat St. in Moscow and seeing the Russian citizens greet him:</p>
-<blockquote>
-<p>We are greatly honored to hold the 30th anniversary of our Birth Day together with the distinguished Visitor Service Medals. As we enter the city limits, traffic is slow and plodding; on both sides of the street are Russian-owned shops and businesses.</p>
-<p>A few years ago, as the workers of Moscow were preparing to leave, a car plowed through the crowd, killing one person and wounding 50. Three days later, another car hit a crowd of people in the crowd, and a Russian national who was visiting the home of his Russian-born niece was killed.</p>
-<p>The family has been trying all summer to get an explanation from the driver of the car. But on the morning of my visit, he summoned the national guard and told them to get out of the way immediately. The guard was right there, and he and the driver seemed to know it.</p>
-<p>A few days later, the family got a call that another car was blocking traffic on I-95. The driver of the Russian car was hit in the back and was taken to a local hospital. Our thoughts are with the family at this difficult time.</p>
-</blockquote>
-<p>GPT-2 remembers Reagan&rsquo;s proud references to America&rsquo;s political and diplomatic victories over the Soviet Union (including Soviet withdrawal from Afghanistan):</p>
-<blockquote>
-<p>I want to return to Washington this week and begin the difficult process of determined and thorough review of our action in Afghanistan. The review will continue through to Christmas. But first, I want to wish my family and the Washington community a happy 2012.</p>
-<p>A Message From the President:</p>
-<p>My family and many in the Washington community celebrate the 40th anniversary of the victory over the Soviet Union. I want to take a moment here today to truly take a moment and appreciate the hard work of the people of Afghanistan.</p>
-<p>It took a miracle to bring about an economic miracle in this nation. But we brought about an economic miracle that brought about hope and prosperity. And hope is again extended to the people of Afghanistan.</p>
-</blockquote>
-<p>Here, I think GPT-2&rsquo;s external bias overpowers the text, so you can probably skip past this part of the farewell:</p>
-<blockquote>
-<p>I want to begin this little review with a warning. Some people are very nervous. I&rsquo;ve known people who have been nervous. And yet again, my family and I have been very, very, very, very, nervous.</p>
-<p>Some people are very nervous. And yet again, my family and I have been very, very, very, very, nervous.</p>
-<p>People react to economic developments with confusion and anger. But what few realize is that this is a reaction to change and opportunity. The people have changed. And they&rsquo;ve changed very, very, very fast.</p>
-<p>People are leaving their homes and moving to cities and towns all across America. Not all are Happy Allies. Some are Communists, some are New Righters. Some are Wall Street fixers and other assorted rabble-rouser types who are looking for work in the entertainment industry.</p>
-<p>Well, I&rsquo;ve got to admit, I was a bit of a New Right nut back in the day. And I&rsquo;m proud to say I was one of the few who actually got your hopes up. Well, I&rsquo;ve got to admit, I was a bit of a New Right nut back in the day. And I&rsquo;m proud to say I was a bit of a New Right nut back in the day.</p>
-<p>The fact is, I wasn&rsquo;t really a big New Right guy back in the day. I was a small-town Socialist, and I was happy to be part of the big movement. But I wasn&rsquo;t a big New Right guy when President Kennedy came along. I was a small-town Social Democrat who wanted to see the big government dismantled and the people brought into it.</p>
-<p>I wasn&rsquo;t a big New Right</p>
-</blockquote>
-<h1 id="conclusion">Conclusion</h1>
-<p>GPT-2, as expected, picked up on the major themes of each of the original farewells. It also learned the appropriate vocabularies (relatively speaking) and paragraph breaks. In a way, we can think of GPT-2 as a summarizer of what it sees, though we also must be wary of bias and noise from external sources.</p>
-<p>Unfortunately, a significant amount of Trump rhetoric contaminates the generated speeches for the newer farewells. I opted to exclude the most extreme cases from this post: for every generated text you see here, there were at least 6 other candidates that I rejected. This bias is likely because of GPT-2&rsquo;s original training dataset (which was scraped from various websites after the 2016 American election) and also due to the similaries in the vocabulary/structure of modern political speeches.</p>
-<p>You can play around with my code 
-<a href="https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
-<h1 id="bloopers">Bloopers</h1>
-<p>Now that you&rsquo;ve read to the end, here are some &hellip; interesting &hellip; GPT-2 passages out of context!</p>
-<h2 id="nixon">Nixon</h2>
-<p>This was likely derived from when Nixon spoke of how the White House was the best house in the world in his speech.</p>
-<blockquote>
-<p>Farewell, for I, the illustrious leader of the Senate, farewell this house. This house is no better than a great house. It is the best house.</p>
-</blockquote>
-<p>I have no clue why this was generated:</p>
-<blockquote>
-<p>I recall those days. And I remember them well. The thought of them being made President, and the thought being repeated many times, many times, is an example that every man or woman for that matter, should keep in mind. And I think of my two boys, and I have known each and every one of them, and each and only one, did he or she gain or lose in the intelligence required to be a man or a woman in the first place.</p>
-<p>And And And And And</p>
-<p>And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And And As And Restated By The Lord: 1. I have read all of the scriptures&ndash;all of them, if I possibly can, and I have been generous, and I have been kind to those who have been in the Church.</p>
-<p>I have read all the Church&rsquo;s books</p>
-</blockquote>
-<h2 id="reagan">Reagan</h2>
-<p>Not sure what this is:</p>
-<blockquote>
-<p>He is directing the production, distribution, and transportation of telegrams and telegramses warning of new arrivals and requesting that they leave immediately.</p>
-</blockquote>
-<p>This may have been generated from the part of Reagan&rsquo;s speech where he talks about economic summits in Canada.</p>
-<blockquote>
-<p>I know some of you are wondering where I come from.</p>
-<p>Well, I&rsquo;m from Canada.</p>
-<p>I grew up in a small, rural area.</p>
-<p>I remember our first meeting a few years ago.</p>
-</blockquote>
-<p>This one is just off-topic:</p>
-<blockquote>
-<p>And yet, every once in a while something special happens.</p>
-<p>Something that we called a &ldquo;twist.&rdquo;</p>
-<p>Something we called a &ldquo;direct hit.&rdquo;</p>
-<p>Something we called &ldquo;lockstep.&rdquo;</p>
-<p>Something we called &ldquo;insomniacal.&rdquo;</p>
-<p>And we did it again at the Oscars.</p>
-<p>We won an Oscar.</p>
-<p>We went on to win an Academy Award.</p>
-<p>And we&rsquo;re still pretty much the same.</p>
-</blockquote>
-<p>Perhaps the <em>temperature</em> was a little high? (Temperature is a text generation parameter: the higher it is, the more &ldquo;creative&rdquo; the output becomes.)</p>
-<blockquote>
-<p>communist</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>assassin</p>
-<p>[this goes on for 30 more lines&hellip;]</p>
-</blockquote>
-
-    </div>
-
-    
-
-
-
-
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tag/gpt-2/">GPT-2</a>
-  
-  <a class="badge badge-light" href="/tag/tensorflow/">TensorFlow</a>
-  
-  <a class="badge badge-light" href="/tag/nlp/">NLP</a>
-  
-</div>
-
-
-
-<div class="share-box" aria-hidden="true">
-  <ul class="share">
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="https://twitter.com/intent/tweet?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;text=Writing%20Presidential%20Farewells%20with%20GPT-2" target="_blank" rel="noopener" class="share-btn-twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://www.raymondcao.dev/post/gpt2-farewell/&amp;t=Writing%20Presidential%20Farewells%20with%20GPT-2" target="_blank" rel="noopener" class="share-btn-facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="mailto:?subject=Writing%20Presidential%20Farewells%20with%20GPT-2&amp;body=https://www.raymondcao.dev/post/gpt2-farewell/" target="_blank" rel="noopener" class="share-btn-email">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;title=Writing%20Presidential%20Farewells%20with%20GPT-2" target="_blank" rel="noopener" class="share-btn-linkedin">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="https://web.whatsapp.com/send?text=Writing%20Presidential%20Farewells%20with%20GPT-2%20https://www.raymondcao.dev/post/gpt2-farewell/" target="_blank" rel="noopener" class="share-btn-whatsapp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;title=Writing%20Presidential%20Farewells%20with%20GPT-2" target="_blank" rel="noopener" class="share-btn-weibo">
-          <i class="fab fa-weibo"></i>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-    
-    
-    
-      
-    
-    
-    
-    <div class="media author-card content-widget-hr">
-      
-        
-        <img class="avatar mr-3 avatar-circle" src="/author/raymond-cao/avatar_hucdb3927314689e512bcfed36e757a4f6_14691_270x270_fill_q90_lanczos_center.jpg" alt="Raymond Cao">
-      
-
-      <div class="media-body">
-        <h5 class="card-title"><a href="https://www.raymondcao.dev/">Raymond Cao</a></h5>
-        <h6 class="card-subtitle">Software Enginner &amp; Tech Enthusiast</h6>
-        <p class="card-text">Software engineer and tech geek who loves to dive down various rabbit holes.</p>
-        <ul class="network-icon" aria-hidden="true">
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="/#contact" >
-        <i class="fas fa-address-book"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://www.linkedin.com/in/raymond-cao/" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://github.com/CaoRuiming" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="/files/Raymond_Cao_Resume.pdf" >
-        <i class="ai ai-cv"></i>
-      </a>
-    </li>
-  
-</ul>
-
-      </div>
-    </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <div class="article-widget content-widget-hr">
-    <h3>Related</h3>
-    <ul>
-      
-      <li><a href="/project/gpt2-farewell/">Analyzing Presidential Farewells with GPT-2</a></li>
-      
-      <li><a href="/project/gradient-ascent/">Detecting Fake News with CNNs &amp; RNNs</a></li>
-      
-    </ul>
-  </div>
-  
-
-
-
-  </div>
-</article>
-
-      
-
-    
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-
-      
-
-      
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/javascript.min.js"></script>
-        
-      
-
-    
-
-    
-    
-
-    
-    
-    <script>const code_highlighting = true;</script>
-    
-
-    
-    
-    <script>const isSiteThemeDark = false;</script>
-    
-
-    
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content="Source Themes Academic 4.8.0" />
+
+    <meta name="author" content="Raymond Cao" />
+
+    <meta
+      name="description"
+      content="In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents."
+    />
+
+    <link
+      rel="alternate"
+      hreflang="en-us"
+      href="https://www.raymondcao.dev/post/gpt2-farewell/"
+    />
+
+    <meta name="theme-color" content="#2962ff" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
+      integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css"
+      integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+      integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA="
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css"
+      crossorigin="anonymous"
+      title="hl-light"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css"
+      crossorigin="anonymous"
+      title="hl-dark"
+      disabled
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"
+      integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A="
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+    />
+
+    <link rel="stylesheet" href="/css/academic.css" />
+
+    <link rel="manifest" href="/index.webmanifest" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_32x32_fill_lanczos_center_3.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_192x192_fill_lanczos_center_3.png"
+    />
+
+    <link
+      rel="canonical"
+      href="https://www.raymondcao.dev/post/gpt2-farewell/"
+    />
+
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <meta property="og:site_name" content="Raymond Cao&#39;s Website" />
+    <meta
+      property="og:url"
+      content="https://www.raymondcao.dev/post/gpt2-farewell/"
+    />
+    <meta
+      property="og:title"
+      content="Writing Presidential Farewells with GPT-2 | Raymond Cao&#39;s Website"
+    />
+    <meta
+      property="og:description"
+      content="In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents."
+    />
+    <meta
+      property="og:image"
+      content="https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg"
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg"
+    />
+    <meta property="og:locale" content="en-us" />
+
+    <meta
+      property="article:published_time"
+      content="2020-05-14T12:22:39-04:00"
+    />
+
+    <meta
+      property="article:modified_time"
+      content="2020-05-14T12:22:39-04:00"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.raymondcao.dev/post/gpt2-farewell/"
+        },
+        "headline": "Writing Presidential Farewells with GPT-2",
+
+        "image": ["https://www.raymondcao.dev/post/gpt2-farewell/featured.jpg"],
+
+        "datePublished": "2020-05-14T12:22:39-04:00",
+        "dateModified": "2020-05-14T12:22:39-04:00",
+
+        "author": {
+          "@type": "Person",
+          "name": "Raymond Cao"
+        },
+
+        "publisher": {
+          "@type": "Organization",
+          "name": "Raymond Cao's Website",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.raymondcao.dev/images/icon_hu069a29ff56bd6bea5e334f163882e18c_26159_192x192_fill_lanczos_center_3.png"
+          }
+        },
+        "description": "In this project I use GPT-2, a cutting edge language model, to analyze farewell addresses from 3 U.S. Presidents."
+      }
     </script>
-    
 
-    
-    
+    <title>
+      Writing Presidential Farewells with GPT-2 | Raymond Cao&#39;s Website
+    </title>
+  </head>
 
-    
-    
+  <body
+    id="top"
+    data-spy="scroll"
+    data-offset="70"
+    data-target="#TableOfContents"
+  >
+    <aside class="search-results" id="search">
+      <div class="container">
+        <section class="search-header">
+          <div class="row no-gutters justify-content-between mb-3">
+            <div class="col-6">
+              <h1>Search</h1>
+            </div>
+            <div class="col-6 col-search-close">
+              <a class="js-search" href="#"
+                ><i
+                  class="fas fa-times-circle text-muted"
+                  aria-hidden="true"
+                ></i
+              ></a>
+            </div>
+          </div>
+
+          <div id="search-box">
+            <input
+              name="q"
+              id="search-query"
+              placeholder="Search..."
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+              type="search"
+            />
+          </div>
+        </section>
+        <section class="section-search-results">
+          <div id="search-hits"></div>
+        </section>
+      </div>
+    </aside>
+
+    <nav
+      class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar"
+      id="navbar-main"
+    >
+      <div class="container">
+        <div class="d-none d-lg-inline-flex">
+          <a class="navbar-brand" href="/">Raymond Cao&#39;s Website</a>
+        </div>
+
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbar-content"
+          aria-controls="navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span><i class="fas fa-bars"></i></span>
+        </button>
+
+        <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+          <a class="navbar-brand" href="/">Raymond Cao&#39;s Website</a>
+        </div>
+
+        <div
+          class="navbar-collapse main-menu-item collapse justify-content-start"
+          id="navbar-content"
+        >
+          <ul class="navbar-nav d-md-inline-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="/#about"><span>Home</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects"><span>Projects</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/#posts"><span>Posts</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/#contact"><span>Contact</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+          <li class="nav-item">
+            <a class="nav-link js-search" href="#"
+              ><i class="fas fa-search" aria-hidden="true"></i
+            ></a>
+          </li>
+
+          <li class="nav-item dropdown theme-dropdown">
+            <a
+              href="#"
+              class="nav-link js-theme-selector"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+            >
+              <i class="fas fa-palette" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item js-set-theme-light">
+                <span>Light</span>
+              </a>
+              <a href="#" class="dropdown-item js-set-theme-dark">
+                <span>Dark</span>
+              </a>
+              <a href="#" class="dropdown-item js-set-theme-auto">
+                <span>Automatic</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <article class="article">
+      <div class="article-container pt-3">
+        <h1>Writing Presidential Farewells with GPT-2</h1>
+
+        <div class="article-metadata">
+          <span class="article-date"> May 14, 2020 </span>
+
+          <span class="middot-divider"></span>
+          <span class="article-reading-time"> 20 min read </span>
+        </div>
+      </div>
+
+      <div
+        class="article-header article-container featured-image-wrapper mt-4 mb-4"
+        style="max-width: 720px; max-height: 480px"
+      >
+        <div style="position: relative">
+          <img
+            src="/post/gpt2-farewell/featured_huebd17c7f4bc89c42cf2a86ee18402685_218719_720x0_resize_q90_lanczos.jpg"
+            alt=""
+            class="featured-image"
+          />
+          <span class="article-header-caption"
+            >Photo by
+            <a
+              href="https://unsplash.com/@jxb511?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener"
+              >John Bakator</a
+            >
+            on
+            <a
+              href="https://unsplash.com/s/photos/constitution?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener"
+              >Unsplash</a
+            ></span
+          >
+        </div>
+      </div>
+
+      <div class="article-container">
+        <div class="article-style">
+          <p>
+            Hello! This post is a final project write-up for the class
+            <a
+              href="https://bulletin.brown.edu/the-college/concentrations/clas/index.html?find=CLAS%201120U"
+              target="_blank"
+              rel="noopener"
+              ><em>The American Presidents and the Western Tradition</em>
+              (CLAS1120U)</a
+            >
+            at Brown University. I assume no computer science background when I
+            present content on this page.
+          </p>
+          <h2 id="intro">Intro</h2>
+          <p>
+            GPT-2, which stands for Generative Pretrained Transformer 2, is a
+            cutting-edge English language model developed and released by
+            research group
+            <a href="https://openai.com/" target="_blank" rel="noopener"
+              >OpenAI</a
+            >
+            in 2019. This model generates realistic passages of English text
+            given any arbitrary prompt. In fact, GPT-2&rsquo;s output could be
+            so convincing that the model&rsquo;s creators declined to publish
+            the
+            <a
+              href="https://github.com/openai/gpt-2"
+              target="_blank"
+              rel="noopener"
+              >actual model</a
+            >
+            until months after the
+            <a
+              href="https://openai.com/blog/better-language-models/"
+              target="_blank"
+              rel="noopener"
+              >original paper</a
+            >
+            for fear that it would be used to overwhelm social media with
+            hard-to-filter disinformation and propaganda.
+          </p>
+          <p>
+            Now we can find many fun projects on the internet that use the power
+            of GPT-2:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.thisworddoesnotexist.com/"
+                target="_blank"
+                rel="noopener"
+                >This Word Does not Exist</a
+              >: a random dictionary entry generator that creates fake English
+              words and assigns them fake (but not unreasonable) definitions
+            </li>
+            <li>
+              <a href="https://aidungeon.io/" target="_blank" rel="noopener"
+                >AI Dungeon</a
+              >: an open-world choose-your-adventure style game that generates a
+              plot on the fly according to typed responses from players
+            </li>
+          </ul>
+          <p>
+            Of course, there exist less innocent applications of GPT-2, but
+            that&rsquo;s not what I want to look at here.
+          </p>
+          <p>
+            The purpose of this project is to use GPT-2 to analyze and generate
+            farewell speeches for several U.S. Presidents and find which tones,
+            anecdotes, and syntactic details the model finds significant.
+          </p>
+          <p>
+            We will use the
+            <a
+              href="https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/farewell-addresses-washington-1796-jackson-1837"
+              target="_blank"
+              rel="noopener"
+              >farewell addresses</a
+            >
+            of the following presidents:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.presidency.ucsb.edu/documents/farewell-address-0"
+                target="_blank"
+                rel="noopener"
+                >Andrew Jackson</a
+              >
+              &ndash; 1837
+            </li>
+            <li>
+              <a
+                href="https://www.presidency.ucsb.edu/documents/remarks-departure-from-the-white-house"
+                target="_blank"
+                rel="noopener"
+                >Richard Nixon</a
+              >
+              (farewell to White House staff) &ndash; 1974
+            </li>
+            <li>
+              <a
+                href="https://www.presidency.ucsb.edu/documents/farewell-address-the-nation"
+                target="_blank"
+                rel="noopener"
+                >Ronald Reagan</a
+              >
+              &ndash; 1989
+            </li>
+          </ul>
+          <h2 id="how-gpt-2-works">How GPT-2 Works</h2>
+          <p>
+            GPT-2 is a transformer-based language model. This means that the way
+            it generates each word of its output depends primarily on the
+            presence of each word in the input or prompt. In terms of basic
+            math, you can think of this as each word of the output is determined
+            by a weighted sum of the input words (and we have a way to represent
+            the concept of each word as a series of numbers). This concept is
+            called <em>attention</em> because each of the words of the output
+            pay attention to each of the words of the input. Transformers are
+            models that almost entirely rely on attention.
+          </p>
+          <p>
+            Below is a visualization of attention heads presented in the paper
+            <a
+              href="https://arxiv.org/pdf/1706.03762.pdf"
+              target="_blank"
+              rel="noopener"
+              ><em>Attention Is All You Need</em></a
+            >. The opacities of the lines correspond to the amount of
+            &ldquo;attention&rdquo; each attention head has on the other words.
+          </p>
+          <p><img src="attention.jpg" alt="Attention visualized" /></p>
+          <p>
+            The full architecture of GPT-2 is a bit more complicated than
+            what&rsquo;s outlined here, but it is essentially a massively
+            scaled-up version of a transformer model.
+          </p>
+          <p>
+            Here&rsquo;s an example of
+            <a
+              href="https://openai.com/blog/better-language-models/#samples"
+              target="_blank"
+              rel="noopener"
+              >text generated</a
+            >
+            by GPT-2 from OpenAI&rsquo;s website. The model was given a writing
+            prompt about a scientist discovering unicorns in the Andes
+            Mountains.
+          </p>
+          <blockquote>
+            <p>
+              The scientist named the population, after their distinctive horn,
+              Ovid’s Unicorn. These four-horned, silver-white unicorns were
+              previously unknown to science.
+            </p>
+            <p>
+              Now, after almost two centuries, the mystery of what sparked this
+              odd phenomenon is finally solved.
+            </p>
+            <p>
+              Dr. Jorge Perez, an evolutionary biologist from the University of
+              La Paz, and several companions, were exploring the Andes Mountains
+              when they found a small valley, with no other animals or humans.
+              Perez noticed that the valley had what appeared to be a natural
+              fountain, surrounded by two peaks of rock and silver snow.
+            </p>
+          </blockquote>
+          <p>
+            Note that GPT-2 did not confuse pronouns like &rsquo;this&rsquo; and
+            remembered the name of the scientist across different sentences.
+            Although these details seem trivial to native English speakers,
+            older language models that have used architectures like LSTMs (long
+            short term memory) struggle to maintain a cohesive narrative across
+            multiple sentences. GPT-2&rsquo;s impressive capacity to
+            &ldquo;understand&rdquo; the English language comes from its 1.5
+            billion trainable parameters and the
+            <a
+              href="https://openai.com/blog/better-language-models/#fn1"
+              target="_blank"
+              rel="noopener"
+              >40GB of website text</a
+            >
+            that it was trained on.
+          </p>
+          <h2 id="applying-gpt-2">Applying GPT-2</h2>
+          <p>
+            GPT-2 generates output one word at a time using the preceding words
+            as input, similar to how a smartphone&rsquo;s virtual keyboard can
+            suggest the next word you want to type. The model suggests each
+            output word using the trained knowledge represented by its 1.5
+            billion trainable parameters.
+          </p>
+          <p>
+            For this project, I can tweak these parameters so they they imitate
+            a specific writing style by training GPT-2 on a text example using
+            the writing style I want it to learn.
+          </p>
+          <p>Here is a general overview of the training process:</p>
+          <ol>
+            <li>Get an output from GPT-2</li>
+            <li>
+              Append the output to the text preceding it and compare the result
+              to the training text that we want to learn about
+            </li>
+            <li>
+              Slightly adjust GPT-2&rsquo;s parameters so that the next output
+              will be more similar to the training text than the last output
+            </li>
+            <li>
+              Repeat steps 1-3 until we (the humans) decide that GPT-2 has
+              learned enough
+            </li>
+          </ol>
+          <p>
+            This process is volatile and stochastic &ndash; we will not get the
+            same results from every training session. If we&rsquo;re not
+            careful, it&rsquo;s easy for the model to do things we don&rsquo;t
+            want &ndash; like memorizing and outputting the training text
+            word-for-word.
+          </p>
+          <p>
+            Additionally, updating the 1.5 billion parameters of GPT-2 requires
+            a lot computation power and time, so I used a
+            <a
+              href="https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >Google Colaboratory document</a
+            >
+            with a GPU (graphics processing unit) to accelerate the training
+            process.
+          </p>
+          <p>
+            For more technical details on how I fine-tuned GPT-2, I recommending
+            reading through Max Woolf&rsquo;s
+            <a
+              href="https://minimaxir.com/2019/09/howto-gpt2/"
+              target="_blank"
+              rel="noopener"
+              >excellent guide</a
+            >.
+          </p>
+          <p>
+            When doing this project, I trained GPT-2 separately on each
+            presidential farewell for a short amount of time (measured in terms
+            of number of times we perform the process loop above). The idea was
+            for GPT-2 to begin learning parts the writing style without having
+            enough time to memorize the farewells. Thus, whatever these
+            customized GPT-2 models learned was likely to be more characteristic
+            of the training texts, and we can parse these learned
+            characteristics through the model outputs.
+          </p>
+          <p>So, without further ado, let&rsquo;s look at some GPT-2 output!</p>
+          <h2 id="results">Results</h2>
+          <p>
+            Note that the passages presented here are cherry-picked because
+            performing an accurate statistical analsysis is out of scope for
+            this project, but we can still draw insights from these paragraphs.
+            The themes and structures that make it through to these generated
+            texts are likely the most important components of their respective
+            source speeches.
+          </p>
+          <p>
+            None of these generated farewells would pass as human-written. This
+            is expected because:
+          </p>
+          <ul>
+            <li>
+              The additional training data that I gave GPT-2 data is tiny
+              &ndash; I would need several books worth of training material to
+              realize the full power of the model
+            </li>
+            <li>
+              GPT-2 has several differently-sized variants &ndash; I chose to
+              use the smallest, least powerful version (124M) for performance
+              reasons (the larger ones would have taken hours to fine-tune)
+            </li>
+          </ul>
+          <p>
+            When calling on GPT-2 to generate each of these speeches, I gave
+            them following starting prompt:
+            <strong>&ldquo;Farewell&rdquo;</strong>
+          </p>
+          <h3 id="jacksons-farewell-originally-delivered-on-1837">
+            Jackson&rsquo;s Farewell (originally delivered on 1837)
+          </h3>
+          <blockquote>
+            <p>
+              Farewell, my friend and fellow-citizens, to the present day, and
+              to the new and improved condition of our country.
+            </p>
+          </blockquote>
+          <p>
+            Much like the original farewell, this speech appeals to the paternal
+            figure of Washington as an unambiguous source of authority:
+          </p>
+          <blockquote>
+            <p>
+              We have now passed to your present address by General Washington,
+              who has at length left us a message of peace. He has warned us,
+              with your most worthy counsels, that the strongest Union is the
+              one to which we should be ready to sacrifice our lives for its
+              preservation. The seeds of revolution have already been sown in
+              your bosoms, and the warning counsels of his countrymen have been
+              taken from him. He has had us drawn into a conflict, and he has
+              blasted us from our high cities and thrown us upon the new and
+              exciting pages of history, warning us of the danger and the need
+              of perseverance and of securing to every quarter of the Union the
+              blessings of peace. He has spared no life by his example or by his
+              example&rsquo;s sake, and we are prepared to submit to his
+              authority and to stand ready to be his protectors, if need be,
+              against his will. He has always known that a Union armed with arms
+              would soon be drawn out of the Union; and since he has given no
+              consideration to the eternal consequences of his decision, we are
+              assured that he will not grant it.
+            </p>
+          </blockquote>
+          <p>The uncertainty around the stability of the U.S. sticks around:</p>
+          <blockquote>
+            <p>
+              The public anxiety over the Union has been so great that the
+              General Government has ceased to be the true sphere of public
+              action; and there is no longer a need for any government to govern
+              it. The people of every quarter of the country have already felt
+              their rights laid before them, and their rights have been
+              faithfully sustained in the election of our new President.
+            </p>
+          </blockquote>
+          <p>
+            GPT-2 learns well Jackson&rsquo;s passionate speech about the
+            banking and currency systems of the U.S.:
+          </p>
+          <blockquote>
+            <p>
+              But we are now in the midst of a severe attack on our institutions
+              in the several cities and on our commerce. The great cities and
+              towns in our own cities, with their high taxes and burdens, have
+              been turned into spoliation-demons, and the citizens of other
+              cities and tribes are now compelled with harsh dissensions to
+              become the guardians of a new Federal Government. The commercial
+              establishments in these cities depend almost entirely on gold and
+              silver, and a growing number of such privileges and advantages are
+              now given to us in the currency of paper. The currency is the
+              currency of convenience, and since gold and silver are found
+              exclusively in the cities, and the money circulating in these
+              cities is readily circulating in other cities, the doors of which
+              we have been intrusted have been wide open for the corporations to
+              obtain a share of the currency and to obtain for themselves the
+              desirable advantages of money. [See note to Millennial Star, p.
+              78.]
+            </p>
+          </blockquote>
+          <p>
+            There are many warnings here of the potential perils that may
+            overtake the American people&rsquo;s government, similar to the
+            numerous warnings in Jackson&rsquo;s original speech:
+          </p>
+          <blockquote>
+            <p>
+              These evils are constantly at work in every part of the country,
+              and the corporations have no choice but to inflict them upon us.
+              With increasing numbers they are endeavoring to influence the
+              Government into giving too much gold to every city-house and to
+              place too great a value upon money. Under the influence of these
+              schemes, or the plans advanced by the corporations, the Government
+              is endeavoring to reform the currency in order to obtain for the
+              corporations a share of the currency, and to secure to them a
+              share of the currency a share of the wealth of the country, if
+              they may be permitted to obtain it. From these schemes of
+              injustice and corruption are continually thrown upon our public
+              institutions, and the suggestions of these corporations have
+              generated serious and resounding alarm in the politicians of every
+              city and district. The consequences of these schemes must not be
+              forgotten, for they will soon be discovered and crushed.
+            </p>
+            <p>
+              These severe measures and the constant encouragement given to them
+              have impressed upon us the deep anxiety and danger which pervaded
+              before the Revolution, and we are come to the hour when the
+              warning cry of the General Government will be overthrown. The
+              corporations will have succeeded in obtaining a share of the
+              currency by taking away from the people a share of the money
+              power, and this evil will now be felt in every part of the
+              country.
+            </p>
+            <p>
+              In the cities especially where the corporations have concentrated
+              their operations, the real evils of the present situation are
+              continually at work. The multitude of idle speculators and
+              property speculators in every quarter of the country are
+              endeavoring to impost upon the public treasury a surplus of money
+              in order to obtain for themselves a share of the money power; and
+              from the number of cities in the several States, with their high
+              taxes and burdens, and the high price of goods, the corporations
+              are prepared to sacrifice a large part of the income of the State
+              into the hands of the rich and powerful, and to collect a surplus
+              for themselves by taxing the people at large. These corporations
+              are engaged in a most article of commerce, and they are prepared
+              to sacrifice a portion of the surplus revenue for their own gain;
+              but we are told that they have no choice but to pay the heavy
+              taxes imposed on them, as their revenue will be wholly used for
+              their own benefit; and the heavy debts they are now in debt will
+              soon become more and more severe. The temptation is too great for
+              vain hope, and the time has come when the people in every quarter
+              of the country shall be permitted to be
+            </p>
+          </blockquote>
+          <p>
+            This will become obvious, but the difference in syntax and structure
+            between this generated speech and the newer farewells is stark.
+            Jackson has fewer, yet significantly longer and complex paragraphs.
+            The general vocabulary used also becomes simpler in the recent
+            speeches.
+          </p>
+          <h3 id="nixons-farewell-originally-delivered-on-1974">
+            Nixon&rsquo;s Farewell (originally delivered on 1974)
+          </h3>
+          <blockquote>
+            <p>Farewell, my boys and girls.</p>
+          </blockquote>
+          <p>
+            Nixon&rsquo;s message that he was proud of the people of his
+            administration shines through here:
+          </p>
+          <blockquote>
+            <p>
+              I want you to know that, as I said, I am proud of this Cabinet. I
+              am proud of all the members who have served in our Cabinet. I am
+              proud of our sub-Cabinet. I am proud of our White House Staff. We
+              are grateful to all who have supported us or assisted us in our
+              many missions. And most important, we are proud of this House for
+              what it has done for many years: Ordered houses, and all houses,
+              of the United States Congress.
+            </p>
+          </blockquote>
+          <p>
+            Here&rsquo;s a hint of Nixon&rsquo;s discussion on the greatness of
+            the White House (both the people and the building):
+          </p>
+          <blockquote>
+            <p>
+              I was proud of it. I am proud of it for being the largest house in
+              the world, and I am proud of all the members and staffs who have
+              served in our Cabinet.
+            </p>
+          </blockquote>
+          <p>
+            Repetition of a simple phrase as a rhetorical device; this is more
+            prominent in speeches of the television era:
+          </p>
+          <blockquote>
+            <p>
+              I am proud of our sub-Cabinet. I am proud of our sub-Cabinet. and
+              I am proud of our White House Staff.
+            </p>
+            <p>
+              I am proud of our White House Staff. We are proud of our White
+              House Staff.
+            </p>
+            <p>
+              We have been generous. We have been generous in sacrifice. And
+              most important, we are as proud as we are of it&mdash;5 1/2 years,
+              92% FFA, 59% CFP, 58% AAA, 57% EP, 55% MT, 54% SA, 53% AF, 2% MT,
+              1% AF, 1% MT, 0% NA
+            </p>
+          </blockquote>
+          <p>
+            The most unique part of Nixon&rsquo;s Farewell was the theme of
+            admitting mistakes (i.e. Watergate), and GTP-2 does not miss this:
+          </p>
+          <blockquote>
+            <p>
+              Mistakes, yes. But for personal gain, never. And I only wish that
+              I were a wealthy man-at the present time, I have got to find a way
+              to pay my taxes&ndash;[laughter]&ndash;and if I were, I would like
+              to recompense you for the sacrifices that all of you have made to
+              serve in government.
+            </p>
+          </blockquote>
+          <p>
+            Nixon&rsquo;s praise of the U.S.&rsquo;s strength and message of the
+            importance of passing the torch to younger generations are present
+            here:
+          </p>
+          <blockquote>
+            <p>
+              But you are getting something in government-and I want you to tell
+              this to your children, and I hope the Nation&rsquo;s children will
+              hear it, too&ndash;something in government service that is far
+              more important than money. It is the cause of making this the
+              greatest nation in the world, the leader of the world, because
+              without our leadership it can&rsquo;t possibly grow, it
+              can&rsquo;t possibly win, it can&rsquo;t possibly win only because
+              of our people.
+            </p>
+            <p>We have been generous. We have been generous in sacrifice.</p>
+            <p>
+              And, most important, we are as proud as we are of it&mdash;5 1/2
+              years, 92% FFA, 59% FPA, 59% A, B, and C, natch?
+            </p>
+          </blockquote>
+          <p>
+            The theme of admitting mistakes is so strong that it appears again:
+          </p>
+          <blockquote>
+            <p>
+              Mistakes, yes. But for personal gain, never. And I only wish that
+              I were a wealthy man-at the present time, I have got to find a way
+              to pay my taxes&ndash;[laughter]&ndash;and if I were, I would like
+              to recompense you for the sacrifices that all of you have made to
+              serve in government.
+            </p>
+          </blockquote>
+          <h3 id="reagans-farewell-originally-delivered-on-1989">
+            Reagan&rsquo;s Farewell (originally delivered on 1989)
+          </h3>
+          <p>
+            Before we continue here, I will warn you that the more modern
+            farewells may be more obviously affected by the bias within
+            GPT-2&rsquo;s original training dataset. More details are in the
+            <a href="#conclusion">conclusion section</a>.
+          </p>
+          <p>
+            Below is perhaps indicative of the more informal language used in
+            modern political speeches:
+          </p>
+          <blockquote>
+            <p>Farewell, people. You&rsquo;ve been living under a rock.</p>
+            <p>
+              I&rsquo;m leaving with a big smile on my face. And a big kiss on
+              the cheek.
+            </p>
+          </blockquote>
+          <p>GPT-2 touches on strong Reagan-era American nationalism:</p>
+          <blockquote>
+            <p>
+              We&rsquo;ve met so many great victories. We Americans. And yet,
+              the past 8 years have been filled with uncertainty, mistrust, and
+              confusion. We Americans have lost count of the number of our kind
+              who have sought to influence an increasingly important national
+              question.
+            </p>
+            <p>
+              I know this is some personal frustration, but we Americans know
+              it&rsquo;s true. Our view on foreign affairs has always been the
+              same. Our program has always been the same: Deal with adversity,
+              and build strong institutions – the United States Congress.
+            </p>
+            <p>
+              We the people have always been more ready to accept change and to
+              count on you. President Truman and Congress have been remarkable
+              teachers.
+            </p>
+            <p>
+              We the People have always been more ready to count on our
+              influence. And continue to count on our count.
+            </p>
+          </blockquote>
+          <p>
+            Here is a reference to Reagan&rsquo;s famous tax cuts, which he
+            brags about in the original farewell:
+          </p>
+          <blockquote>
+            <p>
+              We cut taxes, and the programs that limited the government. We cut
+              the bloated, the administrative. We dried up the American
+              superstate. We crumbled the Communist-controlled Asia.
+            </p>
+          </blockquote>
+          <p>
+            Reagan&rsquo;s points on reducing bureaucratic overhead also makes
+            it through:
+          </p>
+          <blockquote>
+            <p>
+              We&rsquo;ve cut the bloated, the administrative, and we&rsquo;ve
+              crumbled the superstate&rsquo;s defenses. It now functions like a
+              show, intrigue, and war. But restraint requires smart diplomacy
+              and long-term planning.
+            </p>
+            <p>
+              We May Receive Midsummaries from the Russian and American
+              Distinguished Visits
+            </p>
+          </blockquote>
+          <p>
+            This section may seem odd, but it corresponds to Reagan&rsquo;s
+            anecdote about travelling through Arbat St. in Moscow and seeing the
+            Russian citizens greet him:
+          </p>
+          <blockquote>
+            <p>
+              We are greatly honored to hold the 30th anniversary of our Birth
+              Day together with the distinguished Visitor Service Medals. As we
+              enter the city limits, traffic is slow and plodding; on both sides
+              of the street are Russian-owned shops and businesses.
+            </p>
+            <p>
+              A few years ago, as the workers of Moscow were preparing to leave,
+              a car plowed through the crowd, killing one person and wounding
+              50. Three days later, another car hit a crowd of people in the
+              crowd, and a Russian national who was visiting the home of his
+              Russian-born niece was killed.
+            </p>
+            <p>
+              The family has been trying all summer to get an explanation from
+              the driver of the car. But on the morning of my visit, he summoned
+              the national guard and told them to get out of the way
+              immediately. The guard was right there, and he and the driver
+              seemed to know it.
+            </p>
+            <p>
+              A few days later, the family got a call that another car was
+              blocking traffic on I-95. The driver of the Russian car was hit in
+              the back and was taken to a local hospital. Our thoughts are with
+              the family at this difficult time.
+            </p>
+          </blockquote>
+          <p>
+            GPT-2 remembers Reagan&rsquo;s proud references to America&rsquo;s
+            political and diplomatic victories over the Soviet Union (including
+            Soviet withdrawal from Afghanistan):
+          </p>
+          <blockquote>
+            <p>
+              I want to return to Washington this week and begin the difficult
+              process of determined and thorough review of our action in
+              Afghanistan. The review will continue through to Christmas. But
+              first, I want to wish my family and the Washington community a
+              happy 2012.
+            </p>
+            <p>A Message From the President:</p>
+            <p>
+              My family and many in the Washington community celebrate the 40th
+              anniversary of the victory over the Soviet Union. I want to take a
+              moment here today to truly take a moment and appreciate the hard
+              work of the people of Afghanistan.
+            </p>
+            <p>
+              It took a miracle to bring about an economic miracle in this
+              nation. But we brought about an economic miracle that brought
+              about hope and prosperity. And hope is again extended to the
+              people of Afghanistan.
+            </p>
+          </blockquote>
+          <p>
+            Here, I think GPT-2&rsquo;s external bias overpowers the text, so
+            you can probably skip past this part of the farewell:
+          </p>
+          <blockquote>
+            <p>
+              I want to begin this little review with a warning. Some people are
+              very nervous. I&rsquo;ve known people who have been nervous. And
+              yet again, my family and I have been very, very, very, very,
+              nervous.
+            </p>
+            <p>
+              Some people are very nervous. And yet again, my family and I have
+              been very, very, very, very, nervous.
+            </p>
+            <p>
+              People react to economic developments with confusion and anger.
+              But what few realize is that this is a reaction to change and
+              opportunity. The people have changed. And they&rsquo;ve changed
+              very, very, very fast.
+            </p>
+            <p>
+              People are leaving their homes and moving to cities and towns all
+              across America. Not all are Happy Allies. Some are Communists,
+              some are New Righters. Some are Wall Street fixers and other
+              assorted rabble-rouser types who are looking for work in the
+              entertainment industry.
+            </p>
+            <p>
+              Well, I&rsquo;ve got to admit, I was a bit of a New Right nut back
+              in the day. And I&rsquo;m proud to say I was one of the few who
+              actually got your hopes up. Well, I&rsquo;ve got to admit, I was a
+              bit of a New Right nut back in the day. And I&rsquo;m proud to say
+              I was a bit of a New Right nut back in the day.
+            </p>
+            <p>
+              The fact is, I wasn&rsquo;t really a big New Right guy back in the
+              day. I was a small-town Socialist, and I was happy to be part of
+              the big movement. But I wasn&rsquo;t a big New Right guy when
+              President Kennedy came along. I was a small-town Social Democrat
+              who wanted to see the big government dismantled and the people
+              brought into it.
+            </p>
+            <p>I wasn&rsquo;t a big New Right</p>
+          </blockquote>
+          <h1 id="conclusion">Conclusion</h1>
+          <p>
+            GPT-2, as expected, picked up on the major themes of each of the
+            original farewells. It also learned the appropriate vocabularies
+            (relatively speaking) and paragraph breaks. In a way, we can think
+            of GPT-2 as a summarizer of what it sees, though we also must be
+            wary of bias and noise from external sources.
+          </p>
+          <p>
+            Unfortunately, a significant amount of Trump rhetoric contaminates
+            the generated speeches for the newer farewells. I opted to exclude
+            the most extreme cases from this post: for every generated text you
+            see here, there were at least 6 other candidates that I rejected.
+            This bias is likely because of GPT-2&rsquo;s original training
+            dataset (which was scraped from various websites after the 2016
+            American election) and also due to the similaries in the
+            vocabulary/structure of modern political speeches.
+          </p>
+          <p>
+            You can play around with my code
+            <a
+              href="https://colab.research.google.com/drive/1BajaHZN5HxGTDH_gqk1kZjCfRphUKZp5?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >here</a
+            >.
+          </p>
+          <h1 id="bloopers">Bloopers</h1>
+          <p>
+            Now that you&rsquo;ve read to the end, here are some &hellip;
+            interesting &hellip; GPT-2 passages out of context!
+          </p>
+          <h2 id="nixon">Nixon</h2>
+          <p>
+            This was likely derived from when Nixon spoke of how the White House
+            was the best house in the world in his speech.
+          </p>
+          <blockquote>
+            <p>
+              Farewell, for I, the illustrious leader of the Senate, farewell
+              this house. This house is no better than a great house. It is the
+              best house.
+            </p>
+          </blockquote>
+          <p>I have no clue why this was generated:</p>
+          <blockquote>
+            <p>
+              I recall those days. And I remember them well. The thought of them
+              being made President, and the thought being repeated many times,
+              many times, is an example that every man or woman for that matter,
+              should keep in mind. And I think of my two boys, and I have known
+              each and every one of them, and each and only one, did he or she
+              gain or lose in the intelligence required to be a man or a woman
+              in the first place.
+            </p>
+            <p>And And And And And</p>
+            <p>
+              And And And And And And And And And And And And And And And And
+              And And And And And And And And And And And And And And And And
+              And And And And And And And And And And And And And And And And
+              And And And And And And And And And And And And And And And And
+              And And And And And And And And And And And And And And And And
+              And And And And And And And And And And And And And And And And As
+              And Restated By The Lord: 1. I have read all of the
+              scriptures&ndash;all of them, if I possibly can, and I have been
+              generous, and I have been kind to those who have been in the
+              Church.
+            </p>
+            <p>I have read all the Church&rsquo;s books</p>
+          </blockquote>
+          <h2 id="reagan">Reagan</h2>
+          <p>Not sure what this is:</p>
+          <blockquote>
+            <p>
+              He is directing the production, distribution, and transportation
+              of telegrams and telegramses warning of new arrivals and
+              requesting that they leave immediately.
+            </p>
+          </blockquote>
+          <p>
+            This may have been generated from the part of Reagan&rsquo;s speech
+            where he talks about economic summits in Canada.
+          </p>
+          <blockquote>
+            <p>I know some of you are wondering where I come from.</p>
+            <p>Well, I&rsquo;m from Canada.</p>
+            <p>I grew up in a small, rural area.</p>
+            <p>I remember our first meeting a few years ago.</p>
+          </blockquote>
+          <p>This one is just off-topic:</p>
+          <blockquote>
+            <p>And yet, every once in a while something special happens.</p>
+            <p>Something that we called a &ldquo;twist.&rdquo;</p>
+            <p>Something we called a &ldquo;direct hit.&rdquo;</p>
+            <p>Something we called &ldquo;lockstep.&rdquo;</p>
+            <p>Something we called &ldquo;insomniacal.&rdquo;</p>
+            <p>And we did it again at the Oscars.</p>
+            <p>We won an Oscar.</p>
+            <p>We went on to win an Academy Award.</p>
+            <p>And we&rsquo;re still pretty much the same.</p>
+          </blockquote>
+          <p>
+            Perhaps the <em>temperature</em> was a little high? (Temperature is
+            a text generation parameter: the higher it is, the more
+            &ldquo;creative&rdquo; the output becomes.)
+          </p>
+          <blockquote>
+            <p>communist</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>assassin</p>
+            <p>[this goes on for 30 more lines&hellip;]</p>
+          </blockquote>
+        </div>
+
+        <div class="article-tags">
+          <a class="badge badge-light" href="/tag/gpt-2/">GPT-2</a>
+
+          <a class="badge badge-light" href="/tag/tensorflow/">TensorFlow</a>
+
+          <a class="badge badge-light" href="/tag/nlp/">NLP</a>
+        </div>
+
+        <div class="share-box" aria-hidden="true">
+          <ul class="share">
+            <li>
+              <a
+                href="https://twitter.com/intent/tweet?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;text=Writing%20Presidential%20Farewells%20with%20GPT-2"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.facebook.com/sharer.php?u=https://www.raymondcao.dev/post/gpt2-farewell/&amp;t=Writing%20Presidential%20Farewells%20with%20GPT-2"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-facebook"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="mailto:?subject=Writing%20Presidential%20Farewells%20with%20GPT-2&amp;body=https://www.raymondcao.dev/post/gpt2-farewell/"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-email"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.linkedin.com/shareArticle?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;title=Writing%20Presidential%20Farewells%20with%20GPT-2"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-linkedin"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://web.whatsapp.com/send?text=Writing%20Presidential%20Farewells%20with%20GPT-2%20https://www.raymondcao.dev/post/gpt2-farewell/"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-whatsapp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://service.weibo.com/share/share.php?url=https://www.raymondcao.dev/post/gpt2-farewell/&amp;title=Writing%20Presidential%20Farewells%20with%20GPT-2"
+                target="_blank"
+                rel="noopener"
+                class="share-btn-weibo"
+              >
+                <i class="fab fa-weibo"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="media author-card content-widget-hr">
+          <img
+            class="avatar mr-3 avatar-circle"
+            src="/author/raymond-cao/avatar_hucdb3927314689e512bcfed36e757a4f6_14691_270x270_fill_q90_lanczos_center.jpg"
+            alt="Raymond Cao"
+          />
+
+          <div class="media-body">
+            <h5 class="card-title">
+              <a href="https://www.raymondcao.dev/">Raymond Cao</a>
+            </h5>
+            <h6 class="card-subtitle">
+              Software Enginner &amp; Tech Enthusiast
+            </h6>
+            <p class="card-text">
+              Software engineer and tech geek who loves to dive down various
+              rabbit holes.
+            </p>
+            <ul class="network-icon" aria-hidden="true">
+              <li>
+                <a href="/#contact">
+                  <i class="fas fa-address-book"></i>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/raymond-cao/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://github.com/CaoRuiming"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+
+              <li>
+                <a href="/files/Raymond_Cao_Resume.pdf">
+                  <i class="ai ai-cv"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article-widget content-widget-hr">
+          <h3>Related</h3>
+          <ul>
+            <li>
+              <a href="/project/gpt2-farewell/"
+                >Analyzing Presidential Farewells with GPT-2</a
+              >
+            </li>
+
+            <li>
+              <a href="/project/gradient-ascent/"
+                >Detecting Fake News with CNNs &amp; RNNs</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"
+      integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"
+      integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+      integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"
+      integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/bash.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/javascript.min.js"></script>
+
+    <script>
+      const code_highlighting = true;
+    </script>
+
+    <script>
+      const isSiteThemeDark = false;
+    </script>
+
+    <script>
+      const search_config = {
+        indexURI: "/index.json",
+        minLength: 1,
+        threshold: 0.3,
+      };
+      const i18n = {
+        no_results: "No results found",
+        placeholder: "Search...",
+        results: "results found",
+      };
+      const content_type = {
+        post: "Posts",
+        project: "Projects",
+        publication: "Publications",
+        talk: "Talks",
+      };
+    </script>
+
     <script id="search-hit-fuse-template" type="text/x-template">
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
@@ -1185,109 +1358,79 @@
       </div>
       </div>
     </script>
-    
 
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js"
+      integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"
+      integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U="
+      crossorigin="anonymous"
+    ></script>
 
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
     <script src="/js/academic.min.b83f17b8257ec03d591fc1860efee439.js"></script>
 
-    
+    <div class="container">
+      <footer class="site-footer">
+        <p class="powered-by">
+          <a href="/privacy/">Privacy Policy</a>
 
+          &middot;
+          <a href="/terms/">Terms</a>
+        </p>
 
+        <p class="powered-by">
+          Copyright © 2025 Raymond Cao
 
+          <span class="float-right" aria-hidden="true">
+            <a href="#" class="back-to-top">
+              <span class="button_icon">
+                <i class="fas fa-chevron-up fa-2x"></i>
+              </span>
+            </a>
+          </span>
+        </p>
+      </footer>
+    </div>
 
-
-
-  
-  
-  <div class="container">
-    <footer class="site-footer">
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
-  
-
-  <p class="powered-by">
-    Copyright © 2022 Raymond Cao &middot; 
-
-    Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-    
-    <span class="float-right" aria-hidden="true">
-      <a href="#" class="back-to-top">
-        <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
-        </span>
-      </a>
-    </span>
-    
-  </p>
-</footer>
-
-  </div>
-  
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
+    <div id="modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cite</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <pre><code class="tex hljs"></code></pre>
+          </div>
+          <div class="modal-footer">
+            <a
+              class="btn btn-outline-primary my-1 js-copy-cite"
+              href="#"
+              target="_blank"
+            >
+              <i class="fas fa-copy"></i> Copy
+            </a>
+            <a
+              class="btn btn-outline-primary my-1 js-download-cite"
+              href="#"
+              target="_blank"
+            >
+              <i class="fas fa-download"></i> Download
+            </a>
+            <div id="modal-error"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>
