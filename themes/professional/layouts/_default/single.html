@@ -1,5 +1,12 @@
 {{ define "main" }}
 <div class="container container--narrow">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="/">Home</a></li>
+            <li class="breadcrumb__item"><a href="/{{ .Section | urlize }}/">{{ .Section | humanize }}</a></li>
+            <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">{{ .Title }}</li>
+        </ol>
+    </nav>
     <header class="post__header">
         <h1 class="post__title">{{ .Title }}</h1>
         <div class="post__meta">

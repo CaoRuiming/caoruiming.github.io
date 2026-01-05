@@ -2,11 +2,15 @@ baseURL = 'https://www.raymondcao.dev/'
 languageCode = 'en-us'
 title = 'Raymond Cao'
 theme = 'professional'
+enableRobotsTXT = true
 
 [params]
   description = 'Software Engineer & Tech Enthusiast'
+  author = 'Raymond Cao'
   profile_picture = 'images/profile.jpg'
-  
+  linkedin = 'https://www.linkedin.com/in/raymond-cao/'
+  github = 'https://github.com/CaoRuiming'
+
 [menu]
   [[menu.main]]
     name = 'Home'
