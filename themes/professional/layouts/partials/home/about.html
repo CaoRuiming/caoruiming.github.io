@@ -1,0 +1,57 @@
+<section class="about" id="about">
+    <div class="container about__container">
+        <div class="about__row">
+            <!-- Profile Sidebar -->
+            <aside class="about__profile">
+                <div class="about__profile-wrapper">
+                    {{ with .Site.Params.profile_picture }}
+                    <img src="{{ . | relURL }}" alt="{{ $.Site.Title }}" class="about__avatar">
+                    {{ end }}
+                    <header class="about__profile-text">
+                        <h2 class="about__name">{{ .Site.Title }}</h2>
+                        <h3 class="about__role">{{ .Site.Params.description }}</h3>
+                    </header>
+                    <ul class="about__social">
+                        {{ range .Params.social_links }}
+                        <li class="about__social-item">
+                            <a href="{{ .url }}" class="about__social-link" aria-label="{{ .label }}" target="_blank" rel="noopener">
+                                <i class="{{ .icon }}"></i>
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="about__content">
+                <h1 class="about__heading">Biography</h1>
+                <p class="about__bio">
+                    {{ .Params.bio | markdownify }}
+                </p>
+
+                <div class="about__extra">
+                    <section class="about__extra-column">
+                        <h3 class="about__subheading">Interests</h3>
+                        <ul class="about__list">
+                            {{ range .Params.interests }}
+                            <li class="about__list-item">{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                    </section>
+                    <section class="about__extra-column">
+                        <h3 class="about__subheading">Education</h3>
+                        <ul class="about__list about__list--edu">
+                            {{ range .Params.education }}
+                            <li class="about__list-item about__list-item--edu">
+                                <span class="about__edu-degree">{{ .degree }}</span>
+                                <span class="about__edu-institution">{{ .institution }}, {{ .year }}</span>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

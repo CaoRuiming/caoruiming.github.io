@@ -1,0 +1,23 @@
+<section class="projects">
+    <div class="container">
+        <h2 class="projects__title">Projects</h2>
+        <div class="projects__grid">
+            {{ range (where .Site.RegularPages "Section" "projects") }}
+            <article class="projects__card">
+                {{ $image := .Resources.GetMatch .Params.image }}
+                {{ if $image }}
+                <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="projects__card-image">
+                {{ else if .Params.image }}
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="projects__card-image">
+                {{ end }}
+                <div class="projects__card-content">
+                    <header>
+                        <h3 class="projects__card-title"><a href="{{ .RelPermalink }}" class="projects__card-link">{{ .Title }}</a></h3>
+                    </header>
+                    <p class="projects__card-summary">{{ .Summary }}</p>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>

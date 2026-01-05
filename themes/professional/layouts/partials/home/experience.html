@@ -1,0 +1,22 @@
+<section class="experience">
+    <div class="container">
+        <h2 class="experience__title">Experience</h2>
+        <div class="experience__list">
+            {{ range (where .Site.RegularPages "Section" "experience").ByDate.Reverse }}
+            <article class="experience__item">
+                <header class="experience__meta">
+                    <time class="experience__date">{{ .Params.date_start }} - {{ .Params.date_end | default "Present" }}</time>
+                    <span class="experience__location">{{ .Params.location }}</span>
+                </header>
+                <div class="experience__detail">
+                    <h3 class="experience__job-title">{{ .Title }}</h3>
+                    <p class="experience__company"><a href="{{ .Params.company_url }}" class="experience__link">{{ .Params.company }}</a></p>
+                    <div class="experience__description">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="container">
+    <h1 class="posts__title">{{ .Title }}</h1>
+    <div class="posts__list">
+        {{ range .Paginator.Pages }}
+        <article class="posts__item">
+            <h2 class="posts__item-title"><a href="{{ .RelPermalink }}" class="posts__item-link">{{ .Title }}</a></h2>
+            <header class="posts__item-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                <span class="posts__item-reading-time">{{ .ReadingTime }} min read</span>
+            </header>
+            <p class="posts__item-summary">{{ .Summary }}</p>
+        </article>
+        {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

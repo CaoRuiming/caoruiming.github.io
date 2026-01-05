@@ -1,0 +1,20 @@
+<nav class="navbar" id="navbar">
+    <div class="container navbar__container">
+        <a href="/" class="navbar__brand">{{ .Site.Title }}</a>
+        <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle navigation">
+            <span class="navbar__toggle-icon">☰</span>
+        </button>
+        <ul class="navbar__menu" id="navbar-menu">
+            {{ range .Site.Menus.main }}
+            <li class="navbar__item">
+                <a href="{{ .URL }}" class="navbar__link">{{ .Name }}</a>
+            </li>
+            {{ end }}
+            <li class="navbar__item">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon">🌓</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>

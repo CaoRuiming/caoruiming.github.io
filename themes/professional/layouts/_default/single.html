@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="container container--narrow">
+    <header class="post__header">
+        <h1 class="post__title">{{ .Title }}</h1>
+        <div class="post__meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            <span class="post__reading-time">{{ .ReadingTime }} min read</span>
+        </div>
+    </header>
+    <article class="post__content">
+        {{ .Content }}
+    </article>
+</div>
+{{ end }}
