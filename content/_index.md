@@ -23,6 +23,6 @@ social_links:
     url: https://www.linkedin.com/in/raymond-cao/
     label: LinkedIn
   - icon: fa-solid fa-file
-    url: /Raymond Cao Resume.pdf
+    url: /Raymond_Cao_CV.pdf
     label: CV
 ---
