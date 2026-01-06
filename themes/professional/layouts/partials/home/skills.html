@@ -1,0 +1,22 @@
+<section class="skills" id="skills">
+    <div class="container">
+        <h2 class="skills__title">Skills</h2>
+        <ul class="skills__grid">
+            {{ range (where .Site.RegularPages "Section" "skills").ByWeight }}
+            <li class="skills__item">
+                <div class="skills__image-container">
+                    {{ $img := .Resources.GetMatch .Params.image }}
+                    {{ if $img }}
+                    <img src="{{ $img.RelPermalink }}" alt="{{ .Title }} logo" class="skills__image">
+                    {{ else }}
+                    <!-- Fallback if image not found -->
+                    <span class="skills__icon-fallback">{{ .Title | truncate 2 "" }}</span>
+                    {{ end }}
+                </div>
+                <h3 class="skills__name">{{ .Title }}</h3>
+                <p class="skills__description">{{ .Content | plainify | truncate 150 }}</p>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</section>
